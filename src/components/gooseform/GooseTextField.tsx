@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
 import { GooseComponentType } from '../../type/GooseComponentType';
+import { GooseDataListType } from '../../type/GooseDataListType';
 import { GooseFormType } from '../../type/GooseFormType';
+import { GooseKeyValue } from '../../type/GooseKeyValue';
 import { GooseNestType } from '../../type/GooseNestType';
 import { GooseTextAreaType } from '../../type/GooseTextAreaType';
+import { GooseTextFieldType } from '../../type/GooseTextFieldType';
 import { GooseTooltipType } from '../../type/GooseTooltipType';
+import GooseHttpRequestUtil from '../../util/GooseHttpRequestUtil';
 
-export default function GooseTextArea(inp: any) {
+export default function GooseTextField(inp: any) {
 
-
-
-
-    let config: GooseTextAreaType = inp.input;
+    let config: GooseTextFieldType = inp.input;
     let id: string = inp.id;
 
     let formData = useSelector((state: any) => state.formData);
@@ -24,9 +25,8 @@ export default function GooseTextArea(inp: any) {
         dispatch(fetchFormData(formData));
     };
 
-
     return (<>
-        <textarea onChange={aggiornaStato} className='form-control' id={id} rows={config.rows} value={formData[id]} />
+        <input type={"text"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} placeholder={config.placeholder} disabled={config.disabled} readOnly={config.readonly} autoFocus={config.autofocus} value={formData[id]} />
     </>);
 
 

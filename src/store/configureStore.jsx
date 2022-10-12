@@ -5,7 +5,7 @@ import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: 'root',
-whitelist: ['feedback', 'formData'],
+whitelist: [],
   storage: storage
 }
 const allReducers = createReducers();

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import GooseForm from '../components/gooseform/GooseForm';
 import Layout from '../components/Layout';
 import { fetchIsLoadingAction } from '../modules/feedback/actions';
+import { fetchFormData } from '../modules/formData/actions';
+import { fetchFormError, resetFormError } from '../modules/formError/actions';
 import gooseFormService from '../services/GooseFormService';
 import { GooseFormType } from '../type/GooseFormType';
 import { GooseNestType } from '../type/GooseNestType';
@@ -15,6 +17,8 @@ export default function ComponentiPage() {
 
     const [path, setPath] = React.useState("")
     const [gooseForm, setGooseForm] = React.useState<GooseFormType>();
+
+    let formError = useSelector((state: any) => state.formError);
 
     const ricerca = async (nomeComponente: any) => {
 
@@ -30,6 +34,16 @@ export default function ComponentiPage() {
 
     }
 
+    const errorHandle = () => {
+       formError["goosePasswordField"]="ERROREEEE";
+       dispatch(fetchFormError(formError));
+    }
+
+    const resetHandle = () => {
+        
+        dispatch(resetFormError());
+     }
+
     useEffect(() => {
 
         if (params.id != path) {
@@ -44,6 +58,8 @@ export default function ComponentiPage() {
         <Layout>
             <div className='row'>
                 <div className='col-12'>
+                    <span onClick={errorHandle} className='btn btn-primary'>goosePasswordField event</span>
+                    <span onClick={resetHandle} className='btn btn-primary'>Reset</span>
                     <GooseForm form={gooseForm} />
                 </div>
             </div>

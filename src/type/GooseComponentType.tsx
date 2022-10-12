@@ -4,7 +4,7 @@ import { GooseTooltipType } from "./GooseTooltipType"
 export type GooseComponentType = {
 
     formId: String
-    id: String
+    id: string
     type: String
     label: String
     widthXl: String

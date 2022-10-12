@@ -3,15 +3,15 @@ import { GooseKeyValue } from "./GooseKeyValue"
 
 export type GooseDataListType = {
     
-    name: String
-    placeholder: String
+    name: string
+    placeholder: string
     disabled: boolean
     readonly: boolean
     autofocus: boolean
     values: Array<GooseKeyValue>
     dynamicValues: GooseHttpRequest
-    keyName: String
-    valueName: String
+    keyName: string
+    valueName: string
 
 
 }

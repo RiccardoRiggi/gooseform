@@ -1,17 +1,17 @@
 import React from "react";
 
 export const initialState = {
-    formData: {},
+    formError: {},
 }
 
-export const formDataReducer = (state = initialState, action) => {
+export const formErrorReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH_FORM_DATA':
+        case 'FETCH_FORM_ERROR':
             return {
                 ...state,
-                formData: action.formData
+                formError: action.formError
             }
-        case 'RESET_FORM_DATA':
+        case 'RESET_FORM_ERROR':
             return {
                 state
             }

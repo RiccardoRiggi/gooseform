@@ -50,7 +50,15 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/componenti/goose-text-area">GooseTextArea</Link>
                             <Link className="collapse-item" to="/componenti/goose-select-static">GooseSelect (Statica)</Link>
                             <Link className="collapse-item" to="/componenti/goose-select-dynamic">GooseSelect (Dinamica)</Link>
-                            <Link className="collapse-item" to="/componenti/goose-select-dynamic-due">GooseSelect (Dinamica DUE)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-select-dynamic-due">GooseSelect (Dinamica 2)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-linked-select">GooseLinkedSelect</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-data-list-static">GooseDataList (Statica)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-data-list-dynamic">GooseDataList (Dinamica)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-text-field">GooseTextField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-password-field">GoosePasswordField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-number-field">GooseNumberField</Link>  
+
+
                       </div>
                     </div>
                 </li>

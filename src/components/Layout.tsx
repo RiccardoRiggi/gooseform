@@ -43,7 +43,7 @@ export default function Layout({ children }: any) {
                                 <span aria-hidden="true">&times;</span>
                             </button></div>}
                             {!feedback.isLoading && children}
-                            {feedback.isLoading && <div className='text-center'><i className="fa-3x fa-solid fa-egg text-danger fa-bounce" ></i></div>}
+                            {feedback.isLoading && <div className='text-center'><i className="fa-3x fa-solid fa-egg text-primary fa-bounce" ></i></div>}
                         </div>
 
                     </div>
