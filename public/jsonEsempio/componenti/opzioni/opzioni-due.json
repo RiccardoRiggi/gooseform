@@ -1,0 +1,22 @@
+[
+	{
+		"chiave": "unoDinamico",
+		"valore": "Uno Dinamico DUE"
+	},
+	{
+		"chiave": "dueDinamico",
+		"valore": "Due Dinamico DUE"
+	},
+	{
+		"chiave": "treDinamico",
+		"valore": "Tre Dinamico DUE"
+	},
+	{
+		"chiave": "quattroDinamico",
+		"valore": "Quattro Dinamico DUE"
+	},
+	{
+		"chiave": "cinqueDinamico",
+		"valore": "Cinque Dinamico DUE"
+	}
+]
