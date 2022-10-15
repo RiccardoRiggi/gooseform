@@ -3,12 +3,12 @@ import { GooseKeyValue } from "./GooseKeyValue"
 
 export type GooseRadioType = {
 
-    name: String
+    name: string
     disabled: boolean
     readonly: boolean
     values: Array<GooseKeyValue>
     dynamicValues: GooseHttpRequest
-    keyName: String
-    valueName: String
+    keyName: string
+    valueName: string
 
 }

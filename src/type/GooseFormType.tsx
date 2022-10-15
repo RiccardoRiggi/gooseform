@@ -6,12 +6,12 @@ import { GoosePopupType } from "./GoosePopupType"
 
 export type GooseFormType = {
 
-    formId: String
-    title: String
-    icon: String
+    formId: string
+    title: string
+    icon: string
     sendButton: GooseButtonType
     resetButton: GooseButtonType
-    description: String
+    description: string
     popup: GoosePopupType
     autocomplete: boolean
     destinationUrl: GooseHttpRequest

@@ -56,9 +56,18 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/componenti/goose-data-list-dynamic">GooseDataList (Dinamica)</Link>  
                             <Link className="collapse-item" to="/componenti/goose-text-field">GooseTextField</Link>  
                             <Link className="collapse-item" to="/componenti/goose-password-field">GoosePasswordField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-number-field">GooseNumberField</Link>  
-
-
+                            <Link className="collapse-item" to="/componenti/goose-number-field">GooseNumberField</Link> 
+                            <Link className="collapse-item" to="/componenti/goose-radio-static">GooseRadio (Statici)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-radio-dynamic">GooseRadio (Dinamici)</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-checkbox">GooseCheckbox</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-email-field">GooseEmailField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-date-field">GooseDateField</Link> 
+                            <Link className="collapse-item" to="/componenti/goose-date-time-field">GooseDateTimeField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-mounth-field">GooseMounthField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-week-field">GooseWeekField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-time-field">GooseTimeField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-color-field">GooseColorField</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-range-field">GooseRangeField</Link>  
                       </div>
                     </div>
                 </li>

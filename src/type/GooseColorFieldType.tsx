@@ -1,6 +1,6 @@
 export type GooseColorFieldType = {
 
-    name: String
+    name: string
     disabled: boolean
     readonly: boolean
 

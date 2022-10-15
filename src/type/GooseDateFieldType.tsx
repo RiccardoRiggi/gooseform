@@ -1,6 +1,6 @@
 export type GooseDateFieldType = {
 
-    name: String
+    name: string
     disabled: boolean
     readonly: boolean
 

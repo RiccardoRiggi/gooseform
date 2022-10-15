@@ -19,6 +19,7 @@ export default function ComponentiPage() {
     const [gooseForm, setGooseForm] = React.useState<GooseFormType>();
 
     let formError = useSelector((state: any) => state.formError);
+    let formData = useSelector((state: any) => state.formData);
 
     const ricerca = async (nomeComponente: any) => {
 
@@ -37,6 +38,8 @@ export default function ComponentiPage() {
     const errorHandle = () => {
        formError["goosePasswordField"]="ERROREEEE";
        dispatch(fetchFormError(formError));
+       formData["gooseRadioStatica"]="unoStatico";
+       dispatch(fetchFormData(formData));
     }
 
     const resetHandle = () => {

@@ -33,7 +33,7 @@ export default function GooseForm(input: GooseNestType) {
 
     return (<>
         {form != undefined &&
-            <form autoComplete={form.autocomplete ? "on" : "off"}><div id={form.formId != undefined ? form.formId.toString() : ""} className="card shadow mb-4">
+            <form autoComplete={form.autocomplete ? "on" : "off"}><div id={form.formId != undefined ? form.formId : ""} className="card shadow mb-4">
                 <div
                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 className="m-0 font-weight-bold text-primary"><i className={"pr-2 " + form.icon}></i>{form.title}</h6>

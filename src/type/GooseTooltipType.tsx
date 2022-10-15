@@ -1,6 +1,6 @@
 export type GooseTooltipType = {
 
-    icon: String
-    description: String
+    icon: string
+    description: string
 
 }

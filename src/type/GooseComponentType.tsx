@@ -3,15 +3,15 @@ import { GooseTooltipType } from "./GooseTooltipType"
 
 export type GooseComponentType = {
 
-    formId: String
+    formId: string
     id: string
-    type: String
-    label: String
-    widthXl: String
-    widthLg: String
-    widthMd: String
-    widthSm: String
-    width: String
+    type: string
+    label: string
+    widthXl: string
+    widthLg: string
+    widthMd: string
+    widthSm: string
+    width: string
     setting: Object//DIPENDE DAL type
     tooltip: GooseTooltipType
     popup: GoosePopupType

@@ -3,12 +3,8 @@ import { GooseKeyValue } from "./GooseKeyValue"
 
 export type GooseCheckboxType = {
 
-    name: String
+    name: string
     disabled: boolean
     readonly: boolean
-    values: Array<GooseKeyValue>
-    dynamicValues: GooseHttpRequest
-    keyName: String
-    valueName: String
 
 }

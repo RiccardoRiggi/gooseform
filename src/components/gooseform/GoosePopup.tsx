@@ -12,7 +12,7 @@ export default function GoosePopup(inp: any) {
     
     return (<>
         <span data-toggle="modal" data-target={"#"+id+"Modal"}>
-            <i title={popup.textTooltip!=undefined?popup.textTooltip.toString():""} className={" "+popup.icon } ></i>
+            <i title={popup.textTooltip!=undefined?popup.textTooltip:""} className={" "+popup.icon } ></i>
         </span>
 
         <div className="modal fade" id={id+"Modal"} role="dialog" aria-labelledby={id+"ModalLabel"} aria-hidden="true">

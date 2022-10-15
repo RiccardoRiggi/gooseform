@@ -11,7 +11,7 @@ export default function GooseTooltip(inp: any) {
 
 
     return (<>
-        <i title={input.description!=undefined?input.description.toString():""} className={' '+input.icon}></i>        
+        <i title={input.description!=undefined?input.description:""} className={' '+input.icon}></i>        
     </>);
 
 
