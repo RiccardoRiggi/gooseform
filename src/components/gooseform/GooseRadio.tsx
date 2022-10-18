@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
+import { fetchFormError } from '../../modules/formError/actions';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseFormType } from '../../type/GooseFormType';
 import { GooseKeyValue } from '../../type/GooseKeyValue';
@@ -24,6 +25,9 @@ export default function GooseRadio(inp: any) {
     */
 
     let formData = useSelector((state: any) => state.formData);
+    let formError = useSelector((state: any) => state.formError);
+
+
     let dispatch = useDispatch();
 
 
@@ -37,6 +41,8 @@ export default function GooseRadio(inp: any) {
     const aggiornaStato = (event: any) => {
         formData[id] = event.target.value;
         dispatch(fetchFormData(formData));
+        formError[id]=undefined;
+        dispatch(fetchFormError(formError));
     };
 
     if (config.dynamicValues != null && !eseguitaChiamata) {

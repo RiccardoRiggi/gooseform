@@ -1,7 +1,7 @@
 export type GooseStandardControlType = {
-    idComponentA: String
-    type: String
-    referenceValue: String
-    referenceValues: Array<String>
-    errorMessage: String
+    idComponentA: string
+    type: string
+    referenceValue: string
+    referenceValues: Array<string>
+    errorMessage: string
 }

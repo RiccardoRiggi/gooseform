@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
+import { fetchFormError } from '../../modules/formError/actions';
 import { GooseCheckboxType } from '../../type/GooseCheckboxType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseFormType } from '../../type/GooseFormType';
@@ -22,21 +23,27 @@ export default function GooseCheckbox(inp: any) {
     let requiredMark: boolean = input.requiredMark;
 
     let formData = useSelector((state: any) => state.formData);
+    let formError = useSelector((state: any) => state.formError);
+
+
     let dispatch = useDispatch();
 
     const aggiornaStato = (event: any) => {
         formData[id] = !formData[id];
         dispatch(fetchFormData(formData));
+        formError[id]=undefined;
+        dispatch(fetchFormError(formError));
     };
 
     if(formData[id]==undefined){
         formData[id]=false;
         dispatch(fetchFormData(formData));
+        
     }
 
     return (<>
         <div className="form-check">
-            <input onChange={aggiornaStato} type="checkbox" className="form-check-input" id={id} name={config.name} readOnly={config.readonly} disabled={config.disabled} value={id} checked={formData[id]} />
+            <input onChange={aggiornaStato} type="checkbox" className="form-check-input" id={id} name={config.name} readOnly={config.readonly} disabled={config.disabled} value={id} checked={formData[id]!=undefined?formData[id]:false} />
             <label className="form-check-label" htmlFor={id}>
                 {label}{requiredMark && <strong className='text-danger'>*</strong>}
             </label>

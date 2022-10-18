@@ -1,6 +1,6 @@
 export type GooseMounthFieldType = {
 
-    name: String
+    name: string
     disabled: boolean
     readonly: boolean
 

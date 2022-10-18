@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
+import { fetchFormError } from '../../modules/formError/actions';
 import { GooseColorFieldType } from '../../type/GooseColorFieldType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseDataListType } from '../../type/GooseDataListType';
@@ -24,15 +25,20 @@ export default function GooseRangeField(inp: any) {
     let id: string = inp.id;
 
     let formData = useSelector((state: any) => state.formData);
+    let formError = useSelector((state: any) => state.formError);
+
+
     let dispatch = useDispatch();
 
     const aggiornaStato = (event: any) => {
         formData[id] = event.target.value;
         dispatch(fetchFormData(formData));
+        formError[id]=undefined;
+        dispatch(fetchFormError(formError));
     };
 
     return (<>
-        <input type={"range"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]} min={config.min} max={config.max} step={config.step} />
+        <input type={"range"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} min={config.min} max={config.max} step={config.step} />
     </>);
 
 

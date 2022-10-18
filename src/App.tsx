@@ -8,6 +8,7 @@ import {
 
 import './App.css';
 import ComponentiPage from './pages/ComponentiPage';
+import ControlliStandardPpage from './pages/ControlliStandardPage';
 
 import HomePage from './pages/HomePage';
 
@@ -22,7 +23,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
 
           <Route path="/componenti/:id" element={<ComponentiPage />} />
-
+          
+          <Route path="/controlli/standard/:id" element={<ControlliStandardPpage />} />
          
         </Routes>
       </BrowserRouter>

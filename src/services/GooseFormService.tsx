@@ -8,11 +8,16 @@ const getSingleComponent = (path: any) => {
     return http.get("/componenti/"+path);
 }
 
+const getSingleStandardControl = (path: any) => {
+    return http.get("/controlli/standard/"+path);
+}
+
 
 
 const gooseFormService = {
     getGooseForm,
-    getSingleComponent
+    getSingleComponent,
+    getSingleStandardControl
 
 };
 export default gooseFormService;

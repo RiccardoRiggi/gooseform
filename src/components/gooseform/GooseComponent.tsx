@@ -10,7 +10,6 @@ import GooseDateField from './GooseDateField';
 import GooseDateTimeField from './GooseDateTimeField';
 import GooseEmailField from './GooseEmailField';
 import GooseLinkedSelect from './GooseLinkedSelect';
-import GooseWeekField from './GooseMounthField';
 import GooseMounthField from './GooseMounthField';
 import GooseNumberField from './GooseNumberField';
 import GoosePasswordField from './GoosePasswordField';
@@ -24,6 +23,7 @@ import GooseTextField from './GooseTextField';
 import GooseTimeField from './GooseTimeField';
 import GooseTooltip from './GooseTooltip';
 import GooseUrlField from './GooseUrlField';
+import GooseWeekField from './GooseWeekField';
 
 export default function GooseComponent(inp: any) {
 
@@ -79,7 +79,7 @@ export default function GooseComponent(inp: any) {
     }
 
     return (
-        <div id={input.id != undefined ? input.id + "-container" : ""} className={"col-" + input.width + " " + "col-xl-" + input.widthXl + " " + "col-lg-" + input.widthLg + " " + "col-md-" + input.widthMd + " " + "col-sm-" + input.widthSm + " "}>
+        <div id={input.id != undefined ? input.id + "-container" : ""} className={"pt-3 col-" + input.width + " " + "col-xl-" + input.widthXl + " " + "col-lg-" + input.widthLg + " " + "col-md-" + input.widthMd + " " + "col-sm-" + input.widthSm + " "}>
             <div className='d-flex flex-row align-items-center justify-content-between'>
                 {"GOOSE_CHECKBOX" != input.type && <><label>{input.label}{input.requiredMark && <strong className='text-danger'>*</strong>}</label>
                     <span>
