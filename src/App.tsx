@@ -8,6 +8,7 @@ import {
 
 import './App.css';
 import ComponentiPage from './pages/ComponentiPage';
+import ControlliComplexPpage from './pages/ControlliComplexPage';
 import ControlliStandardPpage from './pages/ControlliStandardPage';
 
 import HomePage from './pages/HomePage';
@@ -25,6 +26,9 @@ function App() {
           <Route path="/componenti/:id" element={<ComponentiPage />} />
           
           <Route path="/controlli/standard/:id" element={<ControlliStandardPpage />} />
+
+          <Route path="/controlli/complex/:id" element={<ControlliComplexPpage />} />
+
          
         </Routes>
       </BrowserRouter>

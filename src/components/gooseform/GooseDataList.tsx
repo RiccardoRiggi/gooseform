@@ -60,7 +60,7 @@ export default function GooseDataList(inp: any) {
     }
 
     return (<>
-        <input onChange={aggiornaStato} className='form-control' id={id} list={id + "-list"} name={config.name} placeholder={config.placeholder} disabled={config.disabled} readOnly={config.readonly} autoFocus={config.autofocus} value={formData[id]!=undefined?formData[id]:""} />
+        <input onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} list={id + "-list"} name={config.name} placeholder={config.placeholder} disabled={config.disabled} readOnly={config.readonly} autoFocus={config.autofocus} value={formData[id]!=undefined?formData[id]:""} />
         <datalist id={id+"-list"}>
             {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>

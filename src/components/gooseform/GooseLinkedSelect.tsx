@@ -125,7 +125,7 @@ export default function GooseLinkedSelect(inp: any) {
     }
 
     return (<>
-        <select className="form-control" id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id]!=undefined?formData[id]:""}>
+        <select className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id]!=undefined?formData[id]:""}>
             {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}

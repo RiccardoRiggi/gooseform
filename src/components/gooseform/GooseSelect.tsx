@@ -33,14 +33,14 @@ export default function GooseSelect(inp: any) {
     let config: GooseSelectType = inp.input;
     let id: string = inp.id;
 
-    const [eseguitaChiamata,setEseguitaChiamata] = React.useState(false);
+    const [eseguitaChiamata, setEseguitaChiamata] = React.useState(false);
 
     const [listaValori, setListaValori] = React.useState<GooseKeyValue[]>(config.values);
 
     const aggiornaStato = (event: any) => {
         formData[id] = event.target.value;
         dispatch(fetchFormData(formData));
-        formError[id]=undefined;
+        formError[id] = undefined;
         dispatch(fetchFormError(formError));
     };
 
@@ -52,12 +52,12 @@ export default function GooseSelect(inp: any) {
             let listaProvvisoria: Array<GooseKeyValue> = []
             listaProvvisoria.push({ key: "", value: "Scegli..." });
             {
-                risposta.map((riga: any) =>{
-                    console.warn(riga + " - "+config.keyName+" - "+riga[config.keyName]);
-                    let oggettoRispostaTpm: GooseKeyValue = {key: "", value: ""};
-                    oggettoRispostaTpm.key=riga[config.keyName]; 
-                    oggettoRispostaTpm.value=riga[config.valueName];
-                    if(oggettoRispostaTpm.key!=undefined) 
+                risposta.map((riga: any) => {
+                    console.warn(riga + " - " + config.keyName + " - " + riga[config.keyName]);
+                    let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
+                    oggettoRispostaTpm.key = riga[config.keyName];
+                    oggettoRispostaTpm.value = riga[config.valueName];
+                    if (oggettoRispostaTpm.key != undefined)
                         listaProvvisoria.push(oggettoRispostaTpm);
                 }
                 )
@@ -69,7 +69,7 @@ export default function GooseSelect(inp: any) {
     }
 
     return (<>
-        <select className="form-control" id={id} size={config.size} onChange={aggiornaStato} value={formData[id]!=undefined?formData[id]:""}>
+        <select className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onChange={aggiornaStato} value={formData[id] != undefined ? formData[id] : ""}>
             {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}

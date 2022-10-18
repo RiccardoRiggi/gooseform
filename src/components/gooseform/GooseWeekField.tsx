@@ -36,7 +36,7 @@ export default function GooseWeekField(inp: any) {
     };
 
     return (<>
-        <input type={"week"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
+        <input type={"week"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 

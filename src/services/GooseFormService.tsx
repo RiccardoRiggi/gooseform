@@ -12,12 +12,17 @@ const getSingleStandardControl = (path: any) => {
     return http.get("/controlli/standard/"+path);
 }
 
+const getSingleComplexControl = (path: any) => {
+    return http.get("/controlli/complex/"+path);
+}
+
 
 
 const gooseFormService = {
     getGooseForm,
     getSingleComponent,
-    getSingleStandardControl
+    getSingleStandardControl,
+    getSingleComplexControl
 
 };
 export default gooseFormService;

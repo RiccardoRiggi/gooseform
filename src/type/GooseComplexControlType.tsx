@@ -1,6 +1,6 @@
 export type GooseComplexControlType = {
-    idComponentA: String
-    idComponentB: String
-    type: String
-    errorMessage: String
+    idComponentA: string
+    idComponentB: string
+    type: string
+    errorMessage: string
 }

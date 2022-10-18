@@ -30,9 +30,11 @@ export default function GooseTextArea(inp: any) {
         dispatch(fetchFormError(formError));
     };
 
+    
+
 
     return (<>
-        <textarea onChange={aggiornaStato} className='form-control' id={id} rows={config.rows} value={formData[id]!=undefined?formData[id]:""} />
+        <textarea onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} rows={config.rows} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 

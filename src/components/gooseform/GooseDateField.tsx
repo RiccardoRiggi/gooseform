@@ -33,7 +33,7 @@ export default function GooseDateField(inp: any) {
     };
 
     return (<>
-        <input type={"date"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
+        <input type={"date"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 

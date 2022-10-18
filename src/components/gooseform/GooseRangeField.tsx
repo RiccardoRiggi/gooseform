@@ -38,7 +38,7 @@ export default function GooseRangeField(inp: any) {
     };
 
     return (<>
-        <input type={"range"} onChange={aggiornaStato} className='form-control' id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} min={config.min} max={config.max} step={config.step} />
+        <input type={"range"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} min={config.min} max={config.max} step={config.step} />
     </>);
 
 

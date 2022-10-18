@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData, resetFormData } from '../../modules/formData/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
+import { GooseComplexControlType } from '../../type/GooseComplexControlType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseControlType } from '../../type/GooseControlType';
 import { GooseFormType } from '../../type/GooseFormType';
@@ -29,53 +30,291 @@ export default function GooseForm(input: GooseNestType) {
         dispatch(resetFormError());
     }
 
-    const verificaRequired = (controllo: GooseStandardControlType) => {
-        if(formData[controllo.idComponentA]==undefined){
-            formError[controllo.idComponentA]=controllo.errorMessage;
-        }
-    }
-
-    const verificaEqual = (controllo: GooseStandardControlType) => {
-        if(formData[controllo.idComponentA]!=controllo.referenceValue){
-            if(formError[controllo.idComponentA]!=undefined){
-                formError[controllo.idComponentA]=formError[controllo.idComponentA]+" | "+controllo.errorMessage;
-            }else{
-                formError[controllo.idComponentA]=controllo.errorMessage;
+    const verificaStandardRequired = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] == "") {
+            formError[controllo.idComponentA] = controllo.errorMessage;
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
             }
         }
     }
 
-    const verificaNotEqual = (controllo: GooseStandardControlType) => {
-        if(formData[controllo.idComponentA]==controllo.referenceValue){
-            if(formError[controllo.idComponentA]!=undefined){
-                formError[controllo.idComponentA]=formError[controllo.idComponentA]+" | "+controllo.errorMessage;
-            }else{
-                formError[controllo.idComponentA]=controllo.errorMessage;
+    const verificaStandardEqual = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] != controllo.referenceValue) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
             }
         }
     }
 
-    const verificaPattern = (controllo: GooseStandardControlType) => {
+    const verificaStandardNotEqual = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == controllo.referenceValue) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardPattern = (controllo: GooseStandardControlType) => {
         const regex = new RegExp(controllo.referenceValue);
 
-        if(!regex.test(formData[controllo.idComponentA])){
-            if(formError[controllo.idComponentA]!=undefined){
-                formError[controllo.idComponentA]=formError[controllo.idComponentA]+" | "+controllo.errorMessage;
-            }else{
-                formError[controllo.idComponentA]=controllo.errorMessage;
+        if (!regex.test(formData[controllo.idComponentA])) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
             }
         }
     }
+
+    const verificaStandardIn = (controllo: GooseStandardControlType) => {
+        let valoreTrovato: boolean = false;
+        controllo.referenceValues.map((valore: String) => {
+            if (valore == formData[controllo.idComponentA]) {
+                valoreTrovato = true;
+            }
+
+        })
+        if (!valoreTrovato) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardNotIn = (controllo: GooseStandardControlType) => {
+        let valoreTrovato: boolean = false;
+        controllo.referenceValues.map((valore: String) => {
+            if (valore == formData[controllo.idComponentA]) {
+                valoreTrovato = true;
+            }
+
+        })
+        if (valoreTrovato) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardMinText = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA].length < parseInt(controllo.referenceValue)) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardMaxText = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA].length > parseInt(controllo.referenceValue)) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardMin = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] < controllo.referenceValue) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaStandardMax = (controllo: GooseStandardControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] > controllo.referenceValue) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
 
     const gestisciControlloStandard = (controllo: GooseStandardControlType) => {
         if ("REQUIRED" == controllo.type) {
-            verificaRequired(controllo);
-        }else if ("EQUAL" == controllo.type) {
-            verificaEqual(controllo);
-        }else if ("NOT_EQUAL" == controllo.type) {
-            verificaNotEqual(controllo);
-        }else if ("PATTERN" == controllo.type) {
-            verificaPattern(controllo);
+            verificaStandardRequired(controllo);
+        } else if ("EQUAL" == controllo.type) {
+            verificaStandardEqual(controllo);
+        } else if ("NOT_EQUAL" == controllo.type) {
+            verificaStandardNotEqual(controllo);
+        } else if ("PATTERN" == controllo.type) {
+            verificaStandardPattern(controllo);
+        } else if ("IN" == controllo.type) {
+            verificaStandardIn(controllo);
+        } else if ("NOT_IN" == controllo.type) {
+            verificaStandardNotIn(controllo);
+        } else if ("MIN_TEXT" == controllo.type) {
+            verificaStandardMinText(controllo);
+        } else if ("MAX_TEXT" == controllo.type) {
+            verificaStandardMaxText(controllo);
+        } else if ("MIN_NUM" == controllo.type) {
+            verificaStandardMaxText(controllo);
+        } else if ("MIN" == controllo.type) {
+            verificaStandardMin(controllo);
+        } else if ("MAX" == controllo.type) {
+            verificaStandardMax(controllo);
+        }
+    }
+
+    const verificaComplexEqual = (controllo: GooseComplexControlType) => {
+        if (formData[controllo.idComponentA] != formData[controllo.idComponentB]) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaComplexNotEqual = (controllo: GooseComplexControlType) => {
+        if (formData[controllo.idComponentA] == formData[controllo.idComponentB]) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaComplexMin = (controllo: GooseComplexControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] < formData[controllo.idComponentB]) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const verificaComplexMax = (controllo: GooseComplexControlType) => {
+        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] > formData[controllo.idComponentB]) {
+            if (formError[controllo.idComponentA] != undefined) {
+                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+            } else {
+                formError[controllo.idComponentA] = controllo.errorMessage;
+            }
+        } else {
+            if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                formError[controllo.idComponentA] = undefined;
+            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+            }
+        }
+    }
+
+    const gestisciControlloComplex = (controllo: GooseComplexControlType) => {
+        if ("EQUAL" == controllo.type) {
+            verificaComplexEqual(controllo);
+        } else if ("NOT_EQUAL" == controllo.type) {
+            verificaComplexNotEqual(controllo);
+        } else if ("MIN" == controllo.type) {
+            verificaComplexMin(controllo);
+        } else if ("MAX" == controllo.type) {
+            verificaComplexMax(controllo);
         }
     }
 
@@ -84,14 +323,16 @@ export default function GooseForm(input: GooseNestType) {
             if ("STANDARD" == controllo.type) {
                 gestisciControlloStandard(controllo.detail as GooseStandardControlType)
             } else if ("COMPLEX" == controllo.type) {
-
+                gestisciControlloComplex(controllo.detail as GooseComplexControlType)
             }
         })
+
         dispatch(fetchFormError(formError));
         return true; //DA FARE UN CONTROLLO SUL NUMERO DI KEY DI FORMS ERROR
     }
 
     const inviaForm = () => {
+
         if (isControlliPassati()) {
 
         } else {
@@ -101,6 +342,9 @@ export default function GooseForm(input: GooseNestType) {
 
 
     useEffect(() => {
+
+        //METTERE QUI CHIAMATA AI CONTROLLI RENDER CONDIZIONALE
+
         if (!resettato) {
             setResettato(true);
             resetForm();
@@ -123,6 +367,8 @@ export default function GooseForm(input: GooseNestType) {
                         {form.components.map((componente: GooseComponentType) =>
                             <GooseComponent input={componente} />
                         )}
+                    </div>
+                    <div className='row'>
                         <div className='col-6 text-right'>
                             <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton.icon + " pr-2"}></i>{form.resetButton.title}</span>
                         </div>

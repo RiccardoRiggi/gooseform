@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
 
-   
+
 
     const handleClickSidebar = () => {
         if (document.getElementsByTagName("body")[0].classList.contains("sidebar-toggled")) {
@@ -38,7 +38,7 @@ export default function Sidebar() {
 
 
 
-                 <li className="nav-item">
+                <li className="nav-item">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComponenti"
                         aria-expanded="true" aria-controls="collapseComponenti">
                         <i className="fas fa-fw fa-swatchbook"></i>
@@ -50,25 +50,25 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/componenti/goose-text-area">GooseTextArea</Link>
                             <Link className="collapse-item" to="/componenti/goose-select-static">GooseSelect (Statica)</Link>
                             <Link className="collapse-item" to="/componenti/goose-select-dynamic">GooseSelect (Dinamica)</Link>
-                            <Link className="collapse-item" to="/componenti/goose-select-dynamic-due">GooseSelect (Dinamica 2)</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-linked-select">GooseLinkedSelect</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-data-list-static">GooseDataList (Statica)</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-data-list-dynamic">GooseDataList (Dinamica)</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-text-field">GooseTextField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-password-field">GoosePasswordField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-number-field">GooseNumberField</Link> 
-                            <Link className="collapse-item" to="/componenti/goose-radio-static">GooseRadio (Statici)</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-radio-dynamic">GooseRadio (Dinamici)</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-checkbox">GooseCheckbox</Link>  
+                            <Link className="collapse-item" to="/componenti/goose-select-dynamic-due">GooseSelect (Dinamica 2)</Link>
+                            <Link className="collapse-item" to="/componenti/goose-linked-select">GooseLinkedSelect</Link>
+                            <Link className="collapse-item" to="/componenti/goose-data-list-static">GooseDataList (Statica)</Link>
+                            <Link className="collapse-item" to="/componenti/goose-data-list-dynamic">GooseDataList (Dinamica)</Link>
+                            <Link className="collapse-item" to="/componenti/goose-text-field">GooseTextField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-password-field">GoosePasswordField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-number-field">GooseNumberField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-radio-static">GooseRadio (Statici)</Link>
+                            <Link className="collapse-item" to="/componenti/goose-radio-dynamic">GooseRadio (Dinamici)</Link>
+                            <Link className="collapse-item" to="/componenti/goose-checkbox">GooseCheckbox</Link>
                             <Link className="collapse-item" to="/componenti/goose-email-field">GooseEmailField</Link>
-                            <Link className="collapse-item" to="/componenti/goose-date-field">GooseDateField</Link> 
-                            <Link className="collapse-item" to="/componenti/goose-date-time-field">GooseDateTimeField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-mounth-field">GooseMounthField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-week-field">GooseWeekField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-time-field">GooseTimeField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-color-field">GooseColorField</Link>  
-                            <Link className="collapse-item" to="/componenti/goose-range-field">GooseRangeField</Link>  
-                      </div>
+                            <Link className="collapse-item" to="/componenti/goose-date-field">GooseDateField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-date-time-field">GooseDateTimeField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-mounth-field">GooseMounthField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-week-field">GooseWeekField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-time-field">GooseTimeField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-color-field">GooseColorField</Link>
+                            <Link className="collapse-item" to="/componenti/goose-range-field">GooseRangeField</Link>
+                        </div>
                     </div>
                 </li>
 
@@ -85,15 +85,37 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/controlli/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/controlli/standard/not-equal">Not Equal</Link>
                             <Link className="collapse-item" to="/controlli/standard/pattern">Pattern</Link>
+                            <Link className="collapse-item" to="/controlli/standard/in">In</Link>
+                            <Link className="collapse-item" to="/controlli/standard/not-in">Not In</Link>
+                            <Link className="collapse-item" to="/controlli/standard/min-text">Min Text</Link>
+                            <Link className="collapse-item" to="/controlli/standard/max-text">Max Text</Link>
+                            <Link className="collapse-item" to="/controlli/standard/min">Min</Link>
+                            <Link className="collapse-item" to="/controlli/standard/max">Max</Link>
 
 
-                      </div>
+
+                        </div>
                     </div>
                 </li>
 
-          
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseControlliComplex"
+                        aria-expanded="true" aria-controls="collapseControlliComplex">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>Controlli complessi</span>
+                    </a>
+                    <div id="collapseControlliComplex" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/controlli/complex/equal">Equal</Link>
+                            <Link className="collapse-item" to="/controlli/complex/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/controlli/complex/min">Min</Link>
+                            <Link className="collapse-item" to="/controlli/complex/max">Max</Link>
+                        </div>
+                    </div>
+                </li>
 
-           
+
 
 
 
