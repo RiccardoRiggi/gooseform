@@ -18,5 +18,6 @@ export type GooseFormType = {
     originUrl: GooseHttpRequest
     components: Array<GooseComponentType>
     controls: Array<GooseControlType>
+    renders: Array<GooseControlType>
 
 }

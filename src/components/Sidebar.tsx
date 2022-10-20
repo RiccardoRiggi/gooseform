@@ -116,6 +116,44 @@ export default function Sidebar() {
                 </li>
 
 
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGooseTextArea"
+                        aria-expanded="true" aria-controls="collapseGooseTextArea">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>GooseTextArea</span>
+                    </a>
+                    <div id="collapseGooseTextArea" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/goose-text-area/standard/required">Required</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/pattern">Pattern</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/in">In</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/not-in">Not In</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/min-text">Min Text</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/max-text">Max Text</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/min">Min</Link>
+                            <Link className="collapse-item" to="/goose-text-area/standard/max">Max</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-text-area/complex/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complex/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complex/min">Min</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complex/max">Max</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
+                            <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
+                        </div>
+                    </div>
+                </li>
+
+
 
 
 

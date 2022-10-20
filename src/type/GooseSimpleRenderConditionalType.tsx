@@ -1,6 +1,6 @@
 export type GooseSimpleRenderConditionalType = {
-    idComponentA: String
-    idComponentB: String
-    type: String
-    value: String
+    idComponentA: string
+    idComponentB: string
+    type: string
+    value: string
 }

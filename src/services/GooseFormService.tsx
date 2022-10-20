@@ -16,13 +16,18 @@ const getSingleComplexControl = (path: any) => {
     return http.get("/controlli/complex/"+path);
 }
 
+const getFormExample = (nomeComponente: any, tipoGenerale: any, tipoSpecifico: any) => {
+    return http.get("/"+nomeComponente+"/"+tipoGenerale+"/"+tipoSpecifico);
+}
+
 
 
 const gooseFormService = {
     getGooseForm,
     getSingleComponent,
     getSingleStandardControl,
-    getSingleComplexControl
+    getSingleComplexControl,
+    getFormExample
 
 };
 export default gooseFormService;

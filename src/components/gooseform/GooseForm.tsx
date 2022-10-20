@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData, resetFormData } from '../../modules/formData/actions';
+import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
+import { fetchFormHide, resetFormHide } from '../../modules/formHide/actions';
 import { GooseComplexControlType } from '../../type/GooseComplexControlType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseControlType } from '../../type/GooseControlType';
 import { GooseFormType } from '../../type/GooseFormType';
 import { GooseNestType } from '../../type/GooseNestType';
+import { GooseRenderType } from '../../type/GooseRenderType';
+import { GooseSimpleRenderConditionalType } from '../../type/GooseSimpleRenderConditionalType';
 import { GooseStandardControlType } from '../../type/GooseStandardControlType';
 import GooseComponent from './GooseComponent';
 import GoosePopup from './GoosePopup';
@@ -15,6 +19,8 @@ export default function GooseForm(input: GooseNestType) {
 
     let formError = useSelector((state: any) => state.formError);
     let formData = useSelector((state: any) => state.formData);
+    let formHide = useSelector((state: any) => state.formHide);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
 
 
     let form: GooseFormType | undefined = input.form;
@@ -28,6 +34,8 @@ export default function GooseForm(input: GooseNestType) {
     const resetForm = () => {
         dispatch(resetFormData());
         dispatch(resetFormError());
+        dispatch(resetFormHide());
+        dispatch(resetFormDisabled());
     }
 
     const verificaStandardRequired = (controllo: GooseStandardControlType) => {
@@ -178,7 +186,7 @@ export default function GooseForm(input: GooseNestType) {
     }
 
     const verificaStandardMin = (controllo: GooseStandardControlType) => {
-        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] < controllo.referenceValue) {
+        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(controllo.referenceValue)) {
             if (formError[controllo.idComponentA] != undefined) {
                 if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
                     formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
@@ -195,7 +203,7 @@ export default function GooseForm(input: GooseNestType) {
     }
 
     const verificaStandardMax = (controllo: GooseStandardControlType) => {
-        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] > controllo.referenceValue) {
+        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) > parseInt(controllo.referenceValue)) {
             if (formError[controllo.idComponentA] != undefined) {
                 if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
                     formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
@@ -228,8 +236,6 @@ export default function GooseForm(input: GooseNestType) {
         } else if ("MIN_TEXT" == controllo.type) {
             verificaStandardMinText(controllo);
         } else if ("MAX_TEXT" == controllo.type) {
-            verificaStandardMaxText(controllo);
-        } else if ("MIN_NUM" == controllo.type) {
             verificaStandardMaxText(controllo);
         } else if ("MIN" == controllo.type) {
             verificaStandardMin(controllo);
@@ -273,7 +279,7 @@ export default function GooseForm(input: GooseNestType) {
     }
 
     const verificaComplexMin = (controllo: GooseComplexControlType) => {
-        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] < formData[controllo.idComponentB]) {
+        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(formData[controllo.idComponentB])) {
             if (formError[controllo.idComponentA] != undefined) {
                 if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
                     formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
@@ -340,16 +346,81 @@ export default function GooseForm(input: GooseNestType) {
         }
     }
 
+    const verificaHIDE_B_IF_A_EQUAL_X = (render: GooseSimpleRenderConditionalType) => {
+        formHide[render.idComponentB] = formData[render.idComponentA] == render.value;
+    }
+
+    const verificaDISABLE_B_IF_A_EQUAL_X = (render: GooseSimpleRenderConditionalType) => {
+        formDisabled[render.idComponentB] = formData[render.idComponentA] == render.value;
+    }
+
+    const verificaHIDE_B_IF_A_NOT_EQUAL_X = (render: GooseSimpleRenderConditionalType) => {
+        formHide[render.idComponentB] = formData[render.idComponentA] != render.value;
+    }
+
+    const verificaDISABLE_B_IF_A_NOT_EQUAL_X = (render: GooseSimpleRenderConditionalType) => {
+        formDisabled[render.idComponentB] = formData[render.idComponentA] != render.value;
+    }
+
+    const verificaHIDE_B_IF_A_MIN_X = (render: GooseSimpleRenderConditionalType) => {
+        formHide[render.idComponentB] = parseInt(formData[render.idComponentA]) < parseInt(render.value);
+    }
+
+    const verificaDISABLE_B_IF_A_MIN_X = (render: GooseSimpleRenderConditionalType) => {
+        formDisabled[render.idComponentB] = parseInt(formData[render.idComponentA]) < parseInt(render.value);
+    }
+
+    const verificaHIDE_B_IF_A_MAX_X = (render: GooseSimpleRenderConditionalType) => {
+        formHide[render.idComponentB] = parseInt(formData[render.idComponentA]) > parseInt(render.value);
+    }
+
+    const verificaDISABLE_B_IF_A_MAX_X = (render: GooseSimpleRenderConditionalType) => {
+        formDisabled[render.idComponentB] = parseInt(formData[render.idComponentA]) > parseInt(render.value);
+    }
+
+    const gestisciRenderSimple = (render: GooseSimpleRenderConditionalType) => {
+        if ("HIDE_B_IF_A_EQUAL_X" == render.type) {
+            verificaHIDE_B_IF_A_EQUAL_X(render);
+        }else if ("DISABLE_B_IF_A_EQUAL_X" == render.type) {
+            verificaDISABLE_B_IF_A_EQUAL_X(render);
+        }else if ("HIDE_B_IF_A_NOT_EQUAL_X" == render.type) {
+            verificaHIDE_B_IF_A_NOT_EQUAL_X(render);
+        }else if ("DISABLE_B_IF_A_NOT_EQUAL_X" == render.type) {
+            verificaDISABLE_B_IF_A_NOT_EQUAL_X(render);
+        }else if ("HIDE_B_IF_A_MIN_X" == render.type) {
+            verificaHIDE_B_IF_A_MIN_X(render);
+        }else if ("DISABLE_B_IF_A_MIN_X" == render.type) {
+            verificaDISABLE_B_IF_A_MIN_X(render);
+        }else if ("HIDE_B_IF_A_MAX_X" == render.type) {
+            verificaHIDE_B_IF_A_MAX_X(render);
+        }else if ("DISABLE_B_IF_A_MAX_X" == render.type) {
+            verificaDISABLE_B_IF_A_MAX_X(render);
+        }
+    }
+
+
+    const checkRenderConditional = () => {
+        form?.renders.map((render: GooseRenderType) => {
+            if ("SIMPLE_RENDER" == render.type) {
+                gestisciRenderSimple(render.detail as GooseSimpleRenderConditionalType)
+            } else if ("COMPLEX_RENDER" == render.type) {
+                //gestisciControlloComplex(controllo.detail as GooseComplexControlType)
+            }
+        })
+        dispatch(fetchFormHide(formHide));
+        dispatch(fetchFormDisabled(formDisabled));
+    }
+
 
     useEffect(() => {
 
-        //METTERE QUI CHIAMATA AI CONTROLLI RENDER CONDIZIONALE
+        checkRenderConditional();
 
         if (!resettato) {
             setResettato(true);
             resetForm();
         }
-    });
+    },[formData]);
 
 
 
@@ -368,7 +439,7 @@ export default function GooseForm(input: GooseNestType) {
                             <GooseComponent input={componente} />
                         )}
                     </div>
-                    <div className='row'>
+                    <div className='row pt-3'>
                         <div className='col-6 text-right'>
                             <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton.icon + " pr-2"}></i>{form.resetButton.title}</span>
                         </div>

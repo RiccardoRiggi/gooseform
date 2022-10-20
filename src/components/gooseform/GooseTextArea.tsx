@@ -19,6 +19,8 @@ export default function GooseTextArea(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
+
 
 
     let dispatch = useDispatch();
@@ -34,7 +36,7 @@ export default function GooseTextArea(inp: any) {
 
 
     return (<>
-        <textarea onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} rows={config.rows} value={formData[id]!=undefined?formData[id]:""} />
+        <textarea disabled={formDisabled[id]} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} rows={config.rows} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 
