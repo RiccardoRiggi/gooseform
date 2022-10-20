@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
 import { fetchFormData, resetFormData } from '../../modules/formData/actions';
 import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
@@ -333,16 +334,27 @@ export default function GooseForm(input: GooseNestType) {
             }
         })
 
+        let esito: boolean = true;
+        Object.keys(formError).map((chiave: string) => {
+            form?.components.map((componente: GooseComponentType) => {
+                if (chiave == componente.id && formError[chiave] != undefined) {
+                    console.error(formError[chiave]);
+                    esito = false;
+                }
+            });
+        })
         dispatch(fetchFormError(formError));
-        return true; //DA FARE UN CONTROLLO SUL NUMERO DI KEY DI FORMS ERROR
+        return esito;
     }
 
     const inviaForm = () => {
 
         if (isControlliPassati()) {
-
+            dispatch(fetchTestoSuccessAction("Controlli superati!"));
+            dispatch(fetchTestoDangerAction(""));
         } else {
-
+            dispatch(fetchTestoSuccessAction(""));
+            dispatch(fetchTestoDangerAction("Alcuni controlli non sono stati superati"));
         }
     }
 
@@ -381,19 +393,19 @@ export default function GooseForm(input: GooseNestType) {
     const gestisciRenderSimple = (render: GooseSimpleRenderConditionalType) => {
         if ("HIDE_B_IF_A_EQUAL_X" == render.type) {
             verificaHIDE_B_IF_A_EQUAL_X(render);
-        }else if ("DISABLE_B_IF_A_EQUAL_X" == render.type) {
+        } else if ("DISABLE_B_IF_A_EQUAL_X" == render.type) {
             verificaDISABLE_B_IF_A_EQUAL_X(render);
-        }else if ("HIDE_B_IF_A_NOT_EQUAL_X" == render.type) {
+        } else if ("HIDE_B_IF_A_NOT_EQUAL_X" == render.type) {
             verificaHIDE_B_IF_A_NOT_EQUAL_X(render);
-        }else if ("DISABLE_B_IF_A_NOT_EQUAL_X" == render.type) {
+        } else if ("DISABLE_B_IF_A_NOT_EQUAL_X" == render.type) {
             verificaDISABLE_B_IF_A_NOT_EQUAL_X(render);
-        }else if ("HIDE_B_IF_A_MIN_X" == render.type) {
+        } else if ("HIDE_B_IF_A_MIN_X" == render.type) {
             verificaHIDE_B_IF_A_MIN_X(render);
-        }else if ("DISABLE_B_IF_A_MIN_X" == render.type) {
+        } else if ("DISABLE_B_IF_A_MIN_X" == render.type) {
             verificaDISABLE_B_IF_A_MIN_X(render);
-        }else if ("HIDE_B_IF_A_MAX_X" == render.type) {
+        } else if ("HIDE_B_IF_A_MAX_X" == render.type) {
             verificaHIDE_B_IF_A_MAX_X(render);
-        }else if ("DISABLE_B_IF_A_MAX_X" == render.type) {
+        } else if ("DISABLE_B_IF_A_MAX_X" == render.type) {
             verificaDISABLE_B_IF_A_MAX_X(render);
         }
     }
@@ -420,7 +432,7 @@ export default function GooseForm(input: GooseNestType) {
             setResettato(true);
             resetForm();
         }
-    },[formData]);
+    }, [formData]);
 
 
 
