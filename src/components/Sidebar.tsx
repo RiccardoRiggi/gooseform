@@ -149,11 +149,49 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
                             <Link className="collapse-item" to="/goose-text-area/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
                             <Link className="collapse-item" to="/goose-text-area/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
+                            <Link className="collapse-item" to="/goose-text-area/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
 
-
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGooseSelect"
+                        aria-expanded="true" aria-controls="collapseGooseSelect">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>GooseSelect</span>
+                    </a>
+                    <div id="collapseGooseSelect" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/goose-select/standard/required">Required</Link>
+                            <Link className="collapse-item" to="/goose-select/standard/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-select/standard/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-select/standard/in">In</Link>
+                            <Link className="collapse-item" to="/goose-select/standard/not-in">Not In</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-select/complex/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-select/complex/not-equal">Not Equal</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-select/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-select/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-select/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-select/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-select/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-select/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-select/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-select/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
+                        </div>
+                    </div>
+                </li>
 
 
 

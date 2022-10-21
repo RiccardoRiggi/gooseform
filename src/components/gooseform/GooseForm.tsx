@@ -6,6 +6,7 @@ import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
 import { fetchFormHide, resetFormHide } from '../../modules/formHide/actions';
 import { GooseComplexControlType } from '../../type/GooseComplexControlType';
+import { GooseComplexRenderConditionalType } from '../../type/GooseComplexRenderConditionalType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseControlType } from '../../type/GooseControlType';
 import { GooseFormType } from '../../type/GooseFormType';
@@ -410,13 +411,65 @@ export default function GooseForm(input: GooseNestType) {
         }
     }
 
+    const verificaHIDE_C_IF_A_EQUAL_B = (render: GooseComplexRenderConditionalType) => {
+        formHide[render.idComponentC] = formData[render.idComponentA] == formData[render.idComponentB];
+    }
+
+    const verificaDISABLE_C_IF_A_EQUAL_B = (render: GooseComplexRenderConditionalType) => {
+        formDisabled[render.idComponentC] = formData[render.idComponentA] == formData[render.idComponentB];
+    }
+
+    const verificaHIDE_C_IF_A_NOT_EQUAL_B = (render: GooseComplexRenderConditionalType) => {
+        formHide[render.idComponentC] = formData[render.idComponentA] != formData[render.idComponentB];
+    }
+
+    const verificaDISABLE_C_IF_A_NOT_EQUAL_B = (render: GooseComplexRenderConditionalType) => {
+        formDisabled[render.idComponentC] = formData[render.idComponentA] != formData[render.idComponentB];
+    }
+
+    const verificaHIDE_C_IF_A_MIN_B = (render: GooseComplexRenderConditionalType) => {
+        formHide[render.idComponentC] = parseInt(formData[render.idComponentA]) < parseInt(formData[render.idComponentB]);
+    }
+
+    const verificaDISABLE_C_IF_A_MIN_B = (render: GooseComplexRenderConditionalType) => {
+        formDisabled[render.idComponentC] = parseInt(formData[render.idComponentA]) < parseInt(formData[render.idComponentB]);
+    }
+
+    const verificaHIDE_C_IF_A_MAX_B = (render: GooseComplexRenderConditionalType) => {
+        formHide[render.idComponentC] = parseInt(formData[render.idComponentA]) > parseInt(formData[render.idComponentB]);
+    }
+
+    const verificaDISABLE_C_IF_A_MAX_B = (render: GooseComplexRenderConditionalType) => {
+        formDisabled[render.idComponentC] = parseInt(formData[render.idComponentA]) > parseInt(formData[render.idComponentB]);
+    }
+
+    const gestisciRenderComplex = (render: GooseComplexRenderConditionalType) => {
+        if ("HIDE_C_IF_A_EQUAL_B" == render.type) {
+            verificaHIDE_C_IF_A_EQUAL_B(render);
+        } else if ("DISABLE_C_IF_A_EQUAL_B" == render.type) {
+            verificaDISABLE_C_IF_A_EQUAL_B(render);
+        } else if ("HIDE_C_IF_A_NOT_EQUAL_B" == render.type) {
+            verificaHIDE_C_IF_A_NOT_EQUAL_B(render);
+        } else if ("DISABLE_C_IF_A_NOT_EQUAL_B" == render.type) {
+            verificaDISABLE_C_IF_A_NOT_EQUAL_B(render);
+        } else if ("HIDE_C_IF_A_MIN_B" == render.type) {
+            verificaHIDE_C_IF_A_MIN_B(render);
+        } else if ("DISABLE_C_IF_A_MIN_B" == render.type) {
+            verificaDISABLE_C_IF_A_MIN_B(render);
+        } else if ("HIDE_C_IF_A_MAX_B" == render.type) {
+            verificaHIDE_C_IF_A_MAX_B(render);
+        } else if ("DISABLE_C_IF_A_MAX_B" == render.type) {
+            verificaDISABLE_C_IF_A_MAX_B(render);
+        }
+    }
+
 
     const checkRenderConditional = () => {
         form?.renders.map((render: GooseRenderType) => {
             if ("SIMPLE_RENDER" == render.type) {
                 gestisciRenderSimple(render.detail as GooseSimpleRenderConditionalType)
             } else if ("COMPLEX_RENDER" == render.type) {
-                //gestisciControlloComplex(controllo.detail as GooseComplexControlType)
+                gestisciRenderComplex(render.detail as GooseComplexRenderConditionalType)
             }
         })
         dispatch(fetchFormHide(formHide));
