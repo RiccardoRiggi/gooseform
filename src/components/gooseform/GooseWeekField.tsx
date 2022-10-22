@@ -24,6 +24,8 @@ export default function GooseWeekField(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
+
 
 
     let dispatch = useDispatch();
@@ -36,7 +38,7 @@ export default function GooseWeekField(inp: any) {
     };
 
     return (<>
-        <input type={"week"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} disabled={config.disabled} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
+        <input type={"week"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} disabled={config.disabled || formDisabled[id]} readOnly={config.readonly} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 

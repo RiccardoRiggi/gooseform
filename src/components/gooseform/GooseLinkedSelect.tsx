@@ -35,6 +35,8 @@ export default function GooseLinkedSelect(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
+
 
 
     let dispatch = useDispatch();
@@ -125,7 +127,7 @@ export default function GooseLinkedSelect(inp: any) {
     }
 
     return (<>
-        <select className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id]!=undefined?formData[id]:""}>
+        <select disabled={formDisabled[id]} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id]!=undefined?formData[id]:""}>
             {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}

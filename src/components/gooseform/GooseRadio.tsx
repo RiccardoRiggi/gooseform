@@ -26,6 +26,7 @@ export default function GooseRadio(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
 
 
     let dispatch = useDispatch();
@@ -71,8 +72,8 @@ export default function GooseRadio(inp: any) {
     return (<>
         {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
             <div className="form-check form-check-inline">
-                <input checked={formData[id] == val.key} id={val.key} onChange={aggiornaStato} className="form-check-input" type="radio" name={config.name} value={val.key} />
-                <label htmlFor={val.key} className="form-check-label">{val.value}</label>
+                <input checked={formData[id] == val.key} id={id+""+val.key} onChange={aggiornaStato} className="form-check-input" type="radio" name={config.name} value={val.key} disabled={config.disabled || formDisabled[id]} />
+                <label htmlFor={id+""+val.key} className="form-check-label">{val.value}</label>
             </div>
         )}
     </>);

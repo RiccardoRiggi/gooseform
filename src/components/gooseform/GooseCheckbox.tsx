@@ -24,6 +24,8 @@ export default function GooseCheckbox(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
+
 
 
     let dispatch = useDispatch();
@@ -43,7 +45,7 @@ export default function GooseCheckbox(inp: any) {
 
     return (<>
         <div className="form-check">
-            <input onChange={aggiornaStato} type="checkbox" className="form-check-input" id={id} name={config.name} readOnly={config.readonly} disabled={config.disabled} value={id} checked={formData[id]!=undefined?formData[id]:false} />
+            <input onChange={aggiornaStato} type="checkbox" className="form-check-input" id={id} name={config.name} readOnly={config.readonly} disabled={config.disabled || formDisabled[id]} value={id} checked={formData[id]!=undefined?formData[id]:false} />
             <label className="form-check-label" htmlFor={id}>
                 {label}{requiredMark && <strong className='text-danger'>*</strong>}
             </label>

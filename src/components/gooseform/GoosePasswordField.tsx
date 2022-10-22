@@ -10,6 +10,7 @@ export default function GoosePasswordField(inp: any) {
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
+    let formDisabled = useSelector((state: any) => state.formDisabled);
 
 
 
@@ -27,7 +28,7 @@ export default function GoosePasswordField(inp: any) {
     };
 
     return (<>
-        <input type={"password"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} placeholder={config.placeholder} disabled={config.disabled} readOnly={config.readonly} autoFocus={config.autofocus} value={formData[id]!=undefined?formData[id]:""} />
+        <input type={"password"} onChange={aggiornaStato} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} name={config.name} placeholder={config.placeholder} disabled={config.disabled || formDisabled[id]} readOnly={config.readonly} autoFocus={config.autofocus} value={formData[id]!=undefined?formData[id]:""} />
     </>);
 
 
