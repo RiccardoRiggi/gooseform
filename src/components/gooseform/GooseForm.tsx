@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
-import { resetFormData } from '../../modules/formData/actions';
+import { fetchFormData, resetFormData } from '../../modules/formData/actions';
 import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
 import { fetchFormHide, resetFormHide } from '../../modules/formHide/actions';
@@ -14,6 +14,7 @@ import { GooseNestType } from '../../type/GooseNestType';
 import { GooseRenderType } from '../../type/GooseRenderType';
 import { GooseSimpleRenderConditionalType } from '../../type/GooseSimpleRenderConditionalType';
 import { GooseStandardControlType } from '../../type/GooseStandardControlType';
+import GooseHttpRequestUtil from '../../util/GooseHttpRequestUtil';
 import GooseComponent from './GooseComponent';
 import GoosePopup from './GoosePopup';
 
@@ -32,6 +33,9 @@ export default function GooseForm(input: GooseNestType) {
 
 
     const [resettato, setResettato] = React.useState(false);
+
+    const [eseguitaChiamataRecuperoDati, setEseguitaChiamataRecuperoDati] = React.useState(false);
+
 
     const resetForm = () => {
         dispatch(resetFormData());
@@ -481,9 +485,23 @@ export default function GooseForm(input: GooseNestType) {
 
         checkRenderConditional();
 
+        if (!eseguitaChiamataRecuperoDati && form?.originUrl != undefined) {
+            setEseguitaChiamataRecuperoDati(true);
+            GooseHttpRequestUtil(form?.originUrl)?.then(response => {
+                let dati = JSON.parse(response);
+                Object.keys(dati).map((chiave: string) => {
+                    formData[chiave]=dati[chiave];
+                })
+                dispatch(fetchFormData(formData));
+            }).catch(e => {
+                console.error(e);
+            });
+        }
+
         if (!resettato) {
             setResettato(true);
             resetForm();
+            setEseguitaChiamataRecuperoDati(false);
         }
     }, [formData]);
 

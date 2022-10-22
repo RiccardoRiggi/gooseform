@@ -10,7 +10,7 @@ import gooseFormService from '../services/GooseFormService';
 import { GooseFormType } from '../type/GooseFormType';
 import { GooseNestType } from '../type/GooseNestType';
 
-export default function ControlliStandardPpage() {
+export default function EsempiPage() {
 
     let params = useParams();
     let dispatch = useDispatch();
@@ -18,10 +18,9 @@ export default function ControlliStandardPpage() {
     const [path, setPath] = React.useState("")
     const [gooseForm, setGooseForm] = React.useState<GooseFormType>();
 
-
     const ricerca = async (nomeComponente: any) => {
 
-        await gooseFormService.getSingleStandardControl(nomeComponente).then(response => {
+        await gooseFormService.getEsempio(nomeComponente).then(response => {
             setGooseForm(response.data);
 
             dispatch(fetchIsLoadingAction(false));
@@ -33,7 +32,6 @@ export default function ControlliStandardPpage() {
 
     }
 
- 
 
     useEffect(() => {
 

@@ -780,6 +780,20 @@ export default function Sidebar() {
                     </div>
                 </li>
 
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEsempi"
+                        aria-expanded="true" aria-controls="collapseEsempi">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>Esempi di Form</span>
+                    </a>
+                    <div id="collapseEsempi" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/esempi/esempioUno">Esempio Form Uno</Link>
+                        </div>
+                    </div>
+                </li>
+
                 <hr className="sidebar-divider d-none d-md-block" />
 
                 <div className="text-center d-none d-md-inline">

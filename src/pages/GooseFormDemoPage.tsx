@@ -25,9 +25,6 @@ export default function GooseFormDemoPage() {
 
         await gooseFormService.getFormExample(nomeComponente,tipoGenerale,tipoSpecifico).then(response => {
             setGooseForm(response.data);
-
-            console.warn(response.data.renders);
-
             dispatch(fetchIsLoadingAction(false));
         }).catch(e => {
             console.error(e);
