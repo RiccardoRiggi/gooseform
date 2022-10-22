@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { GooseComponentType } from '../../type/GooseComponentType';
-import { GooseFormType } from '../../type/GooseFormType';
-import { GooseNestType } from '../../type/GooseNestType';
 import GooseCheckbox from './GooseCheckbox';
 import GooseColorField from './GooseColorField';
 import GooseDataList from './GooseDataList';

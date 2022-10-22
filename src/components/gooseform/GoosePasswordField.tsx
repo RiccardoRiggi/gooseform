@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
-
 import { GoosePasswordFieldType } from '../../type/GoosePasswordFieldType';
 
 

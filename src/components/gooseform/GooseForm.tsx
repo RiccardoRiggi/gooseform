@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
-import { fetchFormData, resetFormData } from '../../modules/formData/actions';
+import { resetFormData } from '../../modules/formData/actions';
 import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
 import { fetchFormHide, resetFormHide } from '../../modules/formHide/actions';

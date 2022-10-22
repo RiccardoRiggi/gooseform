@@ -1,14 +1,9 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
 import { GooseCheckboxType } from '../../type/GooseCheckboxType';
 import { GooseComponentType } from '../../type/GooseComponentType';
-import { GooseFormType } from '../../type/GooseFormType';
-import { GooseNestType } from '../../type/GooseNestType';
-import { GooseTextAreaType } from '../../type/GooseTextAreaType';
-import { GooseTooltipType } from '../../type/GooseTooltipType';
 import GoosePopup from './GoosePopup';
 import GooseTooltip from './GooseTooltip';
 

@@ -182,31 +182,19 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-data-list/standard/not-in">Not In</Link>
                             <Link className="collapse-item" to="/goose-data-list/standard/min-text">Min Text</Link>
                             <Link className="collapse-item" to="/goose-data-list/standard/max-text">Max Text</Link>
-                            <Link className="collapse-item" to="/goose-data-list/standard/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-data-list/standard/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-data-list/complex/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-data-list/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complex/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-data-list/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-data-list/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-data-list/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-data-list/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-data-list/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-data-list/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-data-list/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-data-list/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-data-list/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-data-list/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-data-list/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-data-list/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-data-list/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
@@ -274,31 +262,19 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-password-field/standard/not-in">Not In</Link>
                             <Link className="collapse-item" to="/goose-password-field/standard/min-text">Min Text</Link>
                             <Link className="collapse-item" to="/goose-password-field/standard/max-text">Max Text</Link>
-                            <Link className="collapse-item" to="/goose-password-field/standard/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-password-field/standard/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-password-field/complex/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-password-field/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complex/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-password-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-password-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-password-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-password-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-password-field/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-password-field/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-password-field/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-password-field/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-password-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-password-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-password-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-password-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-password-field/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
@@ -400,28 +376,15 @@ export default function Sidebar() {
                             <h6 className="collapse-header">Opzioni disponibili:</h6>
                             <Link className="collapse-item" to="/goose-checkbox/standard/required">Required</Link>
                             <hr />
-                            <Link className="collapse-item" to="/goose-checkbox/complex/equal">Equal</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complex/max">Max</Link>
-                            <hr />
                             <Link className="collapse-item" to="/goose-checkbox/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-checkbox/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-checkbox/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-checkbox/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-checkbox/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-checkbox/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-checkbox/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-checkbox/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-checkbox/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
@@ -443,31 +406,19 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-email-field/standard/not-in">Not In</Link>
                             <Link className="collapse-item" to="/goose-email-field/standard/min-text">Min Text</Link>
                             <Link className="collapse-item" to="/goose-email-field/standard/max-text">Max Text</Link>
-                            <Link className="collapse-item" to="/goose-email-field/standard/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-email-field/standard/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-email-field/complex/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-email-field/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complex/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-email-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-email-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-email-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-email-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-email-field/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-email-field/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-email-field/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-email-field/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-email-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-email-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-email-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-email-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-email-field/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
@@ -484,11 +435,8 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-date-field/standard/required">Required</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-date-field/standard/pattern">Pattern</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/in">In</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/not-in">Not In</Link>
-                            <Link className="collapse-item" to="/goose-date-field/standard/min-text">Min Text</Link>
-                            <Link className="collapse-item" to="/goose-date-field/standard/max-text">Max Text</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/min">Min</Link>
                             <Link className="collapse-item" to="/goose-date-field/standard/max">Max</Link>
                             <hr />
@@ -530,11 +478,8 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-date-time-field/standard/required">Required</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-date-time-field/standard/pattern">Pattern</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/in">In</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/not-in">Not In</Link>
-                            <Link className="collapse-item" to="/goose-date-time-field/standard/min-text">Min Text</Link>
-                            <Link className="collapse-item" to="/goose-date-time-field/standard/max-text">Max Text</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/min">Min</Link>
                             <Link className="collapse-item" to="/goose-date-time-field/standard/max">Max</Link>
                             <hr />
@@ -576,11 +521,8 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-mounth-field/standard/required">Required</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-mounth-field/standard/pattern">Pattern</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/in">In</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/not-in">Not In</Link>
-                            <Link className="collapse-item" to="/goose-mounth-field/standard/min-text">Min Text</Link>
-                            <Link className="collapse-item" to="/goose-mounth-field/standard/max-text">Max Text</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/min">Min</Link>
                             <Link className="collapse-item" to="/goose-mounth-field/standard/max">Max</Link>
                             <hr />
@@ -622,11 +564,8 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-week-field/standard/required">Required</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-week-field/standard/pattern">Pattern</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/in">In</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/not-in">Not In</Link>
-                            <Link className="collapse-item" to="/goose-week-field/standard/min-text">Min Text</Link>
-                            <Link className="collapse-item" to="/goose-week-field/standard/max-text">Max Text</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/min">Min</Link>
                             <Link className="collapse-item" to="/goose-week-field/standard/max">Max</Link>
                             <hr />
@@ -668,11 +607,8 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-time-field/standard/required">Required</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-time-field/standard/pattern">Pattern</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/in">In</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/not-in">Not In</Link>
-                            <Link className="collapse-item" to="/goose-time-field/standard/min-text">Min Text</Link>
-                            <Link className="collapse-item" to="/goose-time-field/standard/max-text">Max Text</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/min">Min</Link>
                             <Link className="collapse-item" to="/goose-time-field/standard/max">Max</Link>
                             <hr />
@@ -719,31 +655,19 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-url-field/standard/not-in">Not In</Link>
                             <Link className="collapse-item" to="/goose-url-field/standard/min-text">Min Text</Link>
                             <Link className="collapse-item" to="/goose-url-field/standard/max-text">Max Text</Link>
-                            <Link className="collapse-item" to="/goose-url-field/standard/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-url-field/standard/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-url-field/complex/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-url-field/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complex/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-url-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-url-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-url-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-url-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-url-field/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-url-field/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-url-field/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-url-field/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-url-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-url-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-url-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-url-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-url-field/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
@@ -765,36 +689,96 @@ export default function Sidebar() {
                             <Link className="collapse-item" to="/goose-tel-field/standard/not-in">Not In</Link>
                             <Link className="collapse-item" to="/goose-tel-field/standard/min-text">Min Text</Link>
                             <Link className="collapse-item" to="/goose-tel-field/standard/max-text">Max Text</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/standard/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/standard/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-tel-field/complex/equal">Equal</Link>
                             <Link className="collapse-item" to="/goose-tel-field/complex/not-equal">Not Equal</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complex/min">Min</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complex/max">Max</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-tel-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-tel-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-tel-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
                             <Link className="collapse-item" to="/goose-tel-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
                             <hr />
                             <Link className="collapse-item" to="/goose-tel-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-tel-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-tel-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
                             <Link className="collapse-item" to="/goose-tel-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
-                            <Link className="collapse-item" to="/goose-tel-field/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
                         </div>
                     </div>
                 </li>
 
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGooseColorField"
+                        aria-expanded="true" aria-controls="collapseGooseColorField">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>GooseColorField</span>
+                    </a>
+                    <div id="collapseGooseColorField" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/goose-color-field/standard/required">Required</Link>
+                            <Link className="collapse-item" to="/goose-color-field/standard/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-color-field/standard/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-color-field/standard/in">In</Link>
+                            <Link className="collapse-item" to="/goose-color-field/standard/not-in">Not In</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-color-field/complex/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-color-field/complex/not-equal">Not Equal</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-color-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-color-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-color-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-color-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-color-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-color-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-color-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-color-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
+                        </div>
+                    </div>
+                </li>
 
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGooseRangeField"
+                        aria-expanded="true" aria-controls="collapseGooseRangeField">
+                        <i className="fas fa-fw fa-swatchbook"></i>
+                        <span>GooseRangeField</span>
+                    </a>
+                    <div id="collapseGooseRangeField" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Opzioni disponibili:</h6>
+                            <Link className="collapse-item" to="/goose-range-field/standard/required">Required</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/in">In</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/not-in">Not In</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/min">Min</Link>
+                            <Link className="collapse-item" to="/goose-range-field/standard/max">Max</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-range-field/complex/equal">Equal</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complex/not-equal">Not Equal</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complex/min">Min</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complex/max">Max</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/HIDE_B_IF_A_EQUAL_X">HIDE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/DISABLE_B_IF_A_EQUAL_X">DISABLE_B_IF_A_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/HIDE_B_IF_A_NOT_EQUAL_X">HIDE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/DISABLE_B_IF_A_NOT_EQUAL_X">DISABLE_B_IF_A_NOT_EQUAL_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/HIDE_B_IF_A_MIN_X">HIDE_B_IF_A_MIN_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/DISABLE_B_IF_A_MIN_X">DISABLE_B_IF_A_MIN_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/HIDE_B_IF_A_MAX_X">HIDE_B_IF_A_MAX_X</Link>
+                            <Link className="collapse-item" to="/goose-range-field/simpleRender/DISABLE_B_IF_A_MAX_X">DISABLE_B_IF_A_MAX_X</Link>
+                            <hr />
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/HIDE_C_IF_A_EQUAL_B">HIDE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/DISABLE_C_IF_A_EQUAL_B">DISABLE_C_IF_A_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/HIDE_C_IF_A_NOT_EQUAL_B">HIDE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/DISABLE_C_IF_A_NOT_EQUAL_B">DISABLE_C_IF_A_NOT_EQUAL_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/HIDE_C_IF_A_MIN_B">HIDE_C_IF_A_MIN_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/DISABLE_C_IF_A_MIN_B">DISABLE_C_IF_A_MIN_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/HIDE_C_IF_A_MAX_B">HIDE_C_IF_A_MAX_B</Link>
+                            <Link className="collapse-item" to="/goose-range-field/complexRender/DISABLE_C_IF_A_MAX_B">DISABLE_C_IF_A_MAX_B</Link>
+                        </div>
+                    </div>
+                </li>
 
                 <hr className="sidebar-divider d-none d-md-block" />
 

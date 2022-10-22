@@ -1,19 +1,8 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
-import { GooseComponentType } from '../../type/GooseComponentType';
-import { GooseDataListType } from '../../type/GooseDataListType';
-import { GooseFormType } from '../../type/GooseFormType';
-import { GooseKeyValue } from '../../type/GooseKeyValue';
-import { GooseNestType } from '../../type/GooseNestType';
-import { GooseTelFieldType } from '../../type/GooseTelFieldType';
-import { GooseTextAreaType } from '../../type/GooseTextAreaType';
-import { GooseTextFieldType } from '../../type/GooseTextFieldType';
-import { GooseTooltipType } from '../../type/GooseTooltipType';
 import { GooseUrlFieldType } from '../../type/GooseUrlFieldType';
-import GooseHttpRequestUtil from '../../util/GooseHttpRequestUtil';
 
 export default function GooseUrlField(inp: any) {
 

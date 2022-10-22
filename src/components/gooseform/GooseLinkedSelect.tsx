@@ -1,30 +1,13 @@
-import React, { ChangeEventHandler, useEffect, useReducer } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHref } from 'react-router-dom';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
-import { GooseComponentType } from '../../type/GooseComponentType';
-import { GooseFormType } from '../../type/GooseFormType';
 import { GooseHttpRequest } from '../../type/GooseHttpRequest';
 import { GooseKeyValue } from '../../type/GooseKeyValue';
 import { GooseLinkedSelectType } from '../../type/GooseLinkedSelectType';
-import { GooseNestType } from '../../type/GooseNestType';
-import { GooseSelectType } from '../../type/GooseSelectType';
-import { GooseTextAreaType } from '../../type/GooseTextAreaType';
-import { GooseTooltipType } from '../../type/GooseTooltipType';
 import GooseHttpRequestUtil from '../../util/GooseHttpRequestUtil';
 
 export default function GooseLinkedSelect(inp: any) {
-
-
-    /*
-
-    VIA JS PER SELEZIONARE IL VALORE SELEZIONATO
-
-    document.getElementById("gooseSelectStatica").options[document.getElementById("gooseSelectStatica").selectedIndex]
-
-    */
-
 
     let config: GooseLinkedSelectType = inp.input;
     let id: string = inp.id;
