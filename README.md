@@ -678,7 +678,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseRangeField
-![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/range-field.png)
+![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-range-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
