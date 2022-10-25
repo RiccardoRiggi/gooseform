@@ -661,7 +661,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseMonthField
-![GooseMonthField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-month.png)
+![GooseMonthField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-month-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -678,7 +678,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseRangeField
-![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/range-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -703,7 +703,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseTelField
-![GooseTelField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseTelField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-tel-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -724,7 +724,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseTimeField
-![GooseTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-time-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -741,7 +741,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseUrlField
-![GooseUrlField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseUrlField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-url-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -762,7 +762,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseWeekField
-![GooseWeekField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseWeekField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-week-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
