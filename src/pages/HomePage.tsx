@@ -12,7 +12,7 @@ export default function HomePage() {
     const [documentazione, setDocumentazione] = React.useState(Object);
 
     const ricerca = async () => {
-        fetch('https://raw.githubusercontent.com/RiccardoRiggi/checklist-digitale-fe/main/README.md')
+        fetch('https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/README.md')
             .then((r) => r.text())
             .then(text => {
                 setDocumentazione(text);
