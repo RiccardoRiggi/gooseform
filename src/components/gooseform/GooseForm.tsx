@@ -26,7 +26,7 @@ export default function GooseForm(input: GooseNestType) {
     let formDisabled = useSelector((state: any) => state.formDisabled);
 
 
-    let form: GooseFormType | undefined = input.form;
+    let form: GooseFormType = input.form;
 
 
     let dispatch = useDispatch();
@@ -352,11 +352,40 @@ export default function GooseForm(input: GooseNestType) {
         return esito;
     }
 
+    const estraiDatiDaForm = () => {
+        let oggetto: any = {};
+        Object.keys(formData).map((chiave: string) => {
+            if (chiave != "formData" && chiave != "state") {
+                if ((formHide[chiave] == undefined || formHide[chiave] == false) && (formDisabled[chiave] == undefined || formDisabled[chiave] == false)) {
+                    oggetto[chiave] = formData[chiave];
+                } else {
+                    console.warn("Il campo " + chiave + " è nascosto o disabilitato e non verrà inviato");
+                }
+            }
+
+        });
+        return oggetto;
+    }
+
     const inviaForm = () => {
 
         if (isControlliPassati()) {
-            dispatch(fetchTestoSuccessAction("Controlli superati!"));
-            dispatch(fetchTestoDangerAction(""));
+            let oggettoDaInviare = JSON.stringify(estraiDatiDaForm());
+            if (form.destinationUrl != undefined) {
+                form.destinationUrl.body = oggettoDaInviare;
+                GooseHttpRequestUtil(form.destinationUrl)?.then(response => {
+                    dispatch(fetchTestoSuccessAction("Form inviato con successo"));
+                    dispatch(fetchTestoDangerAction(""));
+                }).catch(e => {
+                    console.error(e);
+                    dispatch(fetchTestoSuccessAction(""));
+                    dispatch(fetchTestoDangerAction("Errore durante l'invio del form"));
+                });
+            }else{
+                console.error("Errore di configurazione: non hai impostato l'endpoint di destinazione (destinationUrl)");
+                dispatch(fetchTestoDangerAction("Il destinationUrl non è presente all'interno della configurazione"));
+            }
+
         } else {
             dispatch(fetchTestoSuccessAction(""));
             dispatch(fetchTestoDangerAction("Alcuni controlli non sono stati superati"));
@@ -490,7 +519,7 @@ export default function GooseForm(input: GooseNestType) {
             GooseHttpRequestUtil(form?.originUrl)?.then(response => {
                 let dati = JSON.parse(response);
                 Object.keys(dati).map((chiave: string) => {
-                    formData[chiave]=dati[chiave];
+                    formData[chiave] = dati[chiave];
                 })
                 dispatch(fetchFormData(formData));
             }).catch(e => {
@@ -513,13 +542,15 @@ export default function GooseForm(input: GooseNestType) {
             <form autoComplete={form.autocomplete ? "on" : "off"}><div id={form.formId != undefined ? form.formId : ""} className="card shadow mb-4">
                 <div
                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 className="m-0 font-weight-bold text-primary"><i className={"pr-2 " + form.icon}></i>{form.title}</h6>
+                    <span><h6 className="m-0 font-weight-bold text-primary"><i className={"pr-2 " + form.icon}></i>{form.title}</h6>
+                        <small>{form.description}</small>
+                    </span>
                     <GoosePopup input={form.popup} id={form.formId} />
                 </div>
                 <div className="card-body">
                     <div className='row'>
                         {form.components.map((componente: GooseComponentType) =>
-                            <GooseComponent input={componente} />
+                            <GooseComponent key={componente.id} input={componente} />
                         )}
                     </div>
                     <div className='row pt-3'>

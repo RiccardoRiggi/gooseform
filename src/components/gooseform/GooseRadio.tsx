@@ -38,7 +38,6 @@ export default function GooseRadio(inp: any) {
             let listaProvvisoria: Array<GooseKeyValue> = []
             {
                 risposta.map((riga: any) => {
-                    console.warn(riga + " - " + config.keyName + " - " + riga[config.keyName]);
                     let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
                     oggettoRispostaTpm.key = riga[config.keyName];
                     oggettoRispostaTpm.value = riga[config.valueName];

@@ -1,21 +1,24 @@
 import React, { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import Layout from '../components/Layout';
 import gooseFormService from '../services/GooseFormService';
+import remarkGfm from 'remark-gfm'
+
 
 export default function HomePage() {
 
+
     const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
-    const [gooseForm, setGooseForm] = React.useState(Object);
+    const [documentazione, setDocumentazione] = React.useState(Object);
 
     const ricerca = async () => {
-       
-        await gooseFormService.getGooseForm().then(response => {
-            setGooseForm(response.data);
-        }).catch(e => {
-            console.error(e);
-        });     
-
+        fetch('https://raw.githubusercontent.com/RiccardoRiggi/checklist-digitale-fe/main/README.md')
+            .then((r) => r.text())
+            .then(text => {
+                setDocumentazione(text);
+            })
     }
+
 
     useEffect(() => {
         if (!ricercaEseguita) {
@@ -29,7 +32,7 @@ export default function HomePage() {
         <Layout>
             <div className='row'>
                 <div className='col-12'>
-                    <h1>QUI VA IL FORM</h1>
+                    <ReactMarkdown children={documentazione} remarkPlugins={[remarkGfm]} ></ReactMarkdown>
                 </div>
             </div>
         </Layout>

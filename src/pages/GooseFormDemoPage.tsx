@@ -19,7 +19,7 @@ export default function GooseFormDemoPage() {
     const [tipoGenerale, setTipoGenerale] = React.useState("");
     const [tipoSpecifico, setTipoSpecifico] = React.useState("");
 
-    const [gooseForm, setGooseForm] = React.useState<GooseFormType>();
+    const [gooseForm, setGooseForm] = React.useState<any>();
 
     const ricerca = async (nomeComponente: any, tipoGenerale: any, tipoSpecifico: any) => {
 

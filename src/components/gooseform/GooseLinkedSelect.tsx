@@ -35,9 +35,7 @@ export default function GooseLinkedSelect(inp: any) {
         setEseguitaChiamata(true);
         let newDynamicValues: GooseHttpRequest = Object.assign({}, config.dynamicValues);
 
-        console.warn(formData[config.idLinkedSelectPadre]);
         newDynamicValues.url = newDynamicValues.url + "/" + formData[config.idLinkedSelectPadre];
-        console.warn(newDynamicValues.url);
         GooseHttpRequestUtil(newDynamicValues)?.then(response => {
             let risposta = JSON.parse(response);
             console.log(risposta);
@@ -45,7 +43,6 @@ export default function GooseLinkedSelect(inp: any) {
             listaProvvisoria.push({ key: "", value: "Scegli..." });
             {
                 risposta.map((riga: any) => {
-                    console.warn(riga + " - " + config.keyName + " - " + riga[config.keyName]);
                     let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
                     oggettoRispostaTpm.key = riga[config.keyName];
                     oggettoRispostaTpm.value = riga[config.valueName];
@@ -72,7 +69,6 @@ export default function GooseLinkedSelect(inp: any) {
             listaProvvisoria.push({ key: "", value: "Scegli..." });
             {
                 risposta.map((riga: any) => {
-                    console.warn(riga + " - " + config.keyName + " - " + riga[config.keyName]);
                     let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
                     oggettoRispostaTpm.key = riga[config.keyName];
                     oggettoRispostaTpm.value = riga[config.valueName];

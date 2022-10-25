@@ -8,7 +8,7 @@ import GooseDateField from './GooseDateField';
 import GooseDateTimeField from './GooseDateTimeField';
 import GooseEmailField from './GooseEmailField';
 import GooseLinkedSelect from './GooseLinkedSelect';
-import GooseMounthField from './GooseMounthField';
+import GooseMonthField from './GooseMonthField';
 import GooseNumberField from './GooseNumberField';
 import GoosePasswordField from './GoosePasswordField';
 import GoosePopup from './GoosePopup';
@@ -58,8 +58,8 @@ export default function GooseComponent(inp: any) {
             return <GooseDateField input={input.setting} id={input.id} />
         } else if ("GOOSE_DATE_TIME_FIELD" == input.type) {
             return <GooseDateTimeField input={input.setting} id={input.id} />
-        } else if ("GOOSE_MOUNTH_FIELD" == input.type) {
-            return <GooseMounthField input={input.setting} id={input.id} />
+        } else if ("GOOSE_MONTH_FIELD" == input.type) {
+            return <GooseMonthField input={input.setting} id={input.id} />
         } else if ("GOOSE_WEEK_FIELD" == input.type) {
             return <GooseWeekField input={input.setting} id={input.id} />
         } else if ("GOOSE_TIME_FIELD" == input.type) {

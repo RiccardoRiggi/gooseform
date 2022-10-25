@@ -1,0 +1,130 @@
+{
+    "formId": "formId",
+    "title": "Titolo del form",
+    "icon": "fas fa-feather-alt",
+    "sendButton": {
+        "title": "Invia",
+        "icon": "fas fa-feather-alt"
+    },
+    "resetButton": {
+        "title": "Reset",
+        "icon": "fas fa-feather-alt"
+    },
+    "description": "Descrizione del form",
+    "popup": {
+        "icon": "fas fa-feather-alt",
+        "textTooltip": "Esempio di testo tooltip",
+        "title": "Titolo popup",
+        "description": "Esempio di descrizione"
+    },
+    "autocomplete": true,
+    "destinationUrl": null,
+    "originUrl": null,
+    "components": [
+        {
+            "formId": "idForm",
+            "id": "padre",
+            "type": "GOOSE_LINKED_SELECT",
+            "label": "Linked Select Padre - padre",
+            "widthXl": "6",
+            "widthLg": "6",
+            "widthMd": "6",
+            "widthSm": "6",
+            "width": "12",
+            "setting": {
+                "size": 1,
+                "values": null,
+                "dynamicValues": {
+                    "url": "http://localhost:3000/documentazione/opzioni",
+                    "method": "GET",
+                    "headers": [
+                        {
+                            "key": "HEADER_1",
+                            "value": "VALORE CUSTOM HEADER"
+                        }
+                    ],
+                    "body": "CORPO DELLA CHIAMATA"
+                },
+                "keyName": "key",
+                "valueName": "value",
+                "idLinkedSelectPadre": null,
+                "idLinkedSelectFiglia": "figlia"
+            },
+            "tooltip": {
+                "icon": "fas fa-feather-alt",
+                "description": "Esempio di descrizione"
+            },
+            "popup": {
+                "icon": "fas fa-feather-alt",
+                "textTooltip": "Esempio di testo tooltip",
+                "title": "Titolo popup",
+                "description": "Esempio di descrizione"
+            },
+            "requiredMark": true
+        },
+        {
+            "formId": "idForm",
+            "id": "figlia",
+            "type": "GOOSE_LINKED_SELECT",
+            "label": "Linked Select Figlia - figlia",
+            "widthXl": "6",
+            "widthLg": "6",
+            "widthMd": "6",
+            "widthSm": "6",
+            "width": "12",
+            "setting": {
+                "size": 1,
+                "values": null,
+                "dynamicValues": {
+                    "url": "http://localhost:3000/documentazione/linked",
+                    "method": "GET",
+                    "headers": [
+                        {
+                            "key": "HEADER_1",
+                            "value": "VALORE CUSTOM HEADER"
+                        }
+                    ],
+                    "body": "CORPO DELLA CHIAMATA"
+                },
+                "keyName": "chiave",
+                "valueName": "valore",
+                "idLinkedSelectPadre": "padre",
+                "idLinkedSelectFiglia": null
+            },
+            "tooltip": {
+                "icon": "fas fa-feather-alt",
+                "description": "Esempio di descrizione"
+            },
+            "popup": {
+                "icon": "fas fa-feather-alt",
+                "textTooltip": "Esempio di testo tooltip",
+                "title": "Titolo popup",
+                "description": "Esempio di descrizione"
+            },
+            "requiredMark": true
+        }
+    ],
+    "controls": [
+        {
+            "type": "STANDARD",
+            "detail": {
+                "idComponentA": "padre",
+                "type": "REQUIRED",
+                "referenceValue": null,
+                "referenceValues": null,
+                "errorMessage": "Il campo padre è richiesto"
+            }
+        },
+        {
+            "type": "STANDARD",
+            "detail": {
+                "idComponentA": "figlia",
+                "type": "REQUIRED",
+                "referenceValue": null,
+                "referenceValues": null,
+                "errorMessage": "Il campo figlia è richiesto"
+            }
+        }
+    ],
+    "renders": []
+}

@@ -1,0 +1,70 @@
+{
+    "formId": "formId",
+    "title": "Titolo del form",
+    "icon": "fas fa-feather-alt",
+    "sendButton": {
+        "title": "Invia",
+        "icon": "fas fa-feather-alt"
+    },
+    "resetButton": {
+        "title": "Reset",
+        "icon": "fas fa-feather-alt"
+    },
+    "description": "Descrizione del form",
+    "popup": {
+        "icon": "fas fa-feather-alt",
+        "textTooltip": "Esempio di testo tooltip",
+        "title": "Titolo popup",
+        "description": "Esempio di descrizione"
+    },
+    "autocomplete": true,
+    "destinationUrl": null,
+    "originUrl": null,
+    "components": [
+        {
+            "formId": "idForm",
+            "id": "gooseDataListDinamica",
+            "type": "GOOSE_DATA_LIST",
+            "label": "Esempio Data List Dinamica",
+            "widthXl": "12",
+            "widthLg": "12",
+            "widthMd": "12",
+            "widthSm": "12",
+            "width": "12",
+            "setting": {
+                "name": "gooseDataListDinamica",
+                "placeholder": "Scegli valore",
+                "disabled": false,
+                "readonly": false,
+                "autofocus": true,
+                "values": null,
+                "dynamicValues": {
+                    "url": "http://localhost:3000/documentazione/opzioniDue",
+                    "method": "GET",
+                    "headers": [
+                        {
+                            "key": "HEADER_2",
+                            "value": "VALORE NUOVO HEADER"
+                        }
+                    ],
+                    "body": "CORPO DELLA CHIAMATA DUE"
+                },
+                "keyName": "chiave",
+                "valueName": "valore"
+            },
+            "tooltip": {
+                "icon": "fas fa-feather-alt",
+                "description": "Esempio di descrizione"
+            },
+            "popup": {
+                "icon": "fas fa-feather-alt",
+                "textTooltip": "Esempio di testo tooltip",
+                "title": "Titolo popup",
+                "description": "Esempio di descrizione"
+            },
+            "requiredMark": true
+        }
+    ],
+    "controls": [],
+    "renders": []
+}

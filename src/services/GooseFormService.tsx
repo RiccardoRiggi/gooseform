@@ -5,7 +5,7 @@ const getGooseForm = () => {
 }
 
 const getSingleComponent = (path: any) => {
-    return http.get("/componenti/"+path);
+    return http.get("/documentazione/componenti/"+path);
 }
 
 const getFormExample = (nomeComponente: any, tipoGenerale: any, tipoSpecifico: any) => {

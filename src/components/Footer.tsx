@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className="container my-auto">
                     <div className="copyright text-center my-auto">
                         <span>Progetto realizzato da <a className="font-weight-bold text-decoration-none"
-                            href="https://www.linkedin.com/in/riccardoriggi/">Riccardo Riggi</a></span>
+                            href="https://www.linkedin.com/in/riccardoriggi/">Riccardo Riggi</a> - Vota il progetto su <a className="font-weight-bold text-decoration-none" href="https://github.com/RiccardoRiggi/gooseform">GitHub</a> </span>
                     </div>
                 </div>
             </footer>

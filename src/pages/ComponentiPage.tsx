@@ -16,7 +16,7 @@ export default function ComponentiPage() {
     let dispatch = useDispatch();
 
     const [path, setPath] = React.useState("")
-    const [gooseForm, setGooseForm] = React.useState<GooseFormType>();
+    const [gooseForm, setGooseForm] = React.useState<any>();
 
     const ricerca = async (nomeComponente: any) => {
 

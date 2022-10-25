@@ -7,7 +7,6 @@ export default async function GooseHttpRequestUtil(input: any) {
 
     let request: GooseHttpRequest = input;
 
-    console.warn(request.url);
 
     var xmlHttp = new XMLHttpRequest();
     
