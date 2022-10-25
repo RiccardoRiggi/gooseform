@@ -1,7 +1,7 @@
 # Goose Form
 ###### *"Alla Goose più coraggiosa che io conosca"*
 
- ![Homepage](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-form.png)
+ ![Homepage](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-form.png)
  
 Goose Form è un generatore dinamico di form realizzato in React. Mediante un oggetto JSON in ingresso opportunamente valorizzato, restituirà in uscita un form con tutti i campi richiesti, controlli di validazione e regole di visibilità. Oltre a questo, è possibile specificare anche la sorgente dati per generare form precompilati e l'endpoint di destinazione al quale inviare tutte le informazioni. Di seguito è presente la documentazione che illustra tutte le funzionalità del progetto. Sono in corso di sviluppo i due componenti aggiuntivi [Goose Form BE]() e [Goose Form Manager]() per agevolare e velocizzare la creazione dei form.  
 
@@ -76,7 +76,7 @@ L'oggetto destinationUrl di tipo GooseHttpRequest consente di inviare sottoforma
   "dataDiNascita": "2000-06-12"
 }
 ```
- ![Esempio Dati Ricevuti Lato Server](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/server.png)
+ ![Esempio Dati Ricevuti Lato Server](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/server.png)
 
 --- 
 
@@ -228,7 +228,7 @@ Di seguito l'elenco di tutti i componenti implementati in Goose Form con i relat
 
 --- 
 ### GooseTextArea
- ![GooseTextArea](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-text-area.png)
+ ![GooseTextArea](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-text-area.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |rows|Number|Indica il numero di righe di altezza della Text Area|
@@ -241,7 +241,7 @@ Di seguito l'elenco di tutti i componenti implementati in Goose Form con i relat
 ```
 ---
 ### GooseSelect (Statica)
-![GooseSelectStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-select-static.png)
+![GooseSelectStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-select-static.png)
 In questa variante la lista delle opzioni viene inclusa all'interno del JSON di configurazione
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -281,7 +281,7 @@ In questa variante la lista delle opzioni viene inclusa all'interno del JSON di 
 ---
 
 ### GooseSelect (Dinamica)
-![GooseSelectStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-select-dynamic.png)
+![GooseSelectStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-select-dynamic.png)
 In questa variante la lista delle opzioni viene recuperata mediante chiamata HTTP ad un endpoint esterno
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -312,7 +312,7 @@ In questa variante la lista delle opzioni viene recuperata mediante chiamata HTT
 ```
 ---
 ### GooseLinkedSelect
-![GooseLinkedSelect](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-linked-select.png)
+![GooseLinkedSelect](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-linked-select.png)
 In questa variante di GooseSelect sono presenti due componenti: padre e figlio. Al variare del padre vengono aggiornate le opzioni del figlio. Le opzioni vengono recuperate via endpoint. Un esempio pratico è la classica coppia di select "Provincia" e "Comune": al variare della provincia viene mostrata la lista dei comuni corrispondenti.
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -346,7 +346,7 @@ In questa variante di GooseSelect sono presenti due componenti: padre e figlio. 
 ```
 ---
 ### GooseDataList (Statica)
-![GooseDataListStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-data-list-static.png)
+![GooseDataListStatica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-data-list-static.png)
 In questa variante la lista dei suggerimenti viene inclusa all'interno del JSON di configurazione
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -393,7 +393,7 @@ In questa variante la lista dei suggerimenti viene inclusa all'interno del JSON 
 ```
 ---
 ### GooseDataList (Dinamica)
-![GooseDataListDinamica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-data-list-dynamic.png)
+![GooseDataListDinamica](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-data-list-dynamic.png)
 In questa variante la lista dei suggerimenti viene recuperata mediante chiamata HTTP ad un endpoint esterno
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -431,7 +431,7 @@ In questa variante la lista dei suggerimenti viene recuperata mediante chiamata 
 ```
 ---
 ### GooseTextField
-![GooseTextField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-text-field.png)
+![GooseTextField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-text-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -451,7 +451,7 @@ In questa variante la lista dei suggerimenti viene recuperata mediante chiamata 
 ```
 ---
 ### GoosePasswordField
-![GoosePasswordField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-password-field.png)
+![GoosePasswordField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-password-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -471,7 +471,7 @@ In questa variante la lista dei suggerimenti viene recuperata mediante chiamata 
 ```
 ---
 ### GooseNumberField
-![GooseNumberField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-number-field.png)
+![GooseNumberField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-number-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -494,7 +494,7 @@ In questa variante la lista dei suggerimenti viene recuperata mediante chiamata 
 ---
 
 ### GooseRadio (Statici)
-![GooseRadio](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-radio-static.png)
+![GooseRadio](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-radio-static.png)
 In questa variante l'elenco dei radio viene incluso all'interno del JSON di configurazione
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -538,7 +538,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseRadio (Dinamici)
-![GooseRadio](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-radio-dynamic.png)
+![GooseRadio](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-radio-dynamic.png)
 In questa variante l'elenco dei radio viene incluso all'interno del JSON di configurazione
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
@@ -572,7 +572,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseCheckbox
-![GooseCheckbox](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-checkbox.png)
+![GooseCheckbox](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-checkbox.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -589,7 +589,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseEmailField
-![GooseEmailField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-email-field.png)
+![GooseEmailField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-email-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -610,7 +610,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseColorField
-![GooseColorField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-color-field.png)
+![GooseColorField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-color-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -627,7 +627,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseDateField
-![GooseDateField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-date-field.png)
+![GooseDateField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-date-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -644,7 +644,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseDateTimeField
-![GooseDateTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-date-time-field.png)
+![GooseDateTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-date-time-field.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -661,7 +661,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseMonthField
-![GooseMonthField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-month.png)
+![GooseMonthField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/goose-month.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -678,7 +678,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseRangeField
-![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseRangeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/homepage.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -703,7 +703,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseTelField
-![GooseTelField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseTelField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/homepage.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -724,7 +724,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseTimeField
-![GooseTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseTimeField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/homepage.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -741,7 +741,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseUrlField
-![GooseUrlField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseUrlField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/homepage.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
@@ -762,7 +762,7 @@ In questa variante l'elenco dei radio viene incluso all'interno del JSON di conf
 ---
 
 ### GooseWeekField
-![GooseWeekField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/homepage.png)
+![GooseWeekField](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshot/homepage.png)
 | Nome | Tipo | Descrizione |
 | ----------- | ----------- | ----------- |
 |name|String|Nome (uguale all'id)|
