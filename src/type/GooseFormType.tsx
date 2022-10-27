@@ -3,6 +3,7 @@ import { GooseComponentType } from "./GooseComponentType"
 import { GooseControlType } from "./GooseControlType"
 import { GooseHttpRequest } from "./GooseHttpRequest"
 import { GoosePopupType } from "./GoosePopupType"
+import { GooseRenderType } from "./GooseRenderType"
 
 export type GooseFormType = {
 
@@ -18,6 +19,6 @@ export type GooseFormType = {
     originUrl: GooseHttpRequest
     components: Array<GooseComponentType>
     controls: Array<GooseControlType>
-    renders: Array<GooseControlType>
+    renders: Array<GooseRenderType>
 
 }
