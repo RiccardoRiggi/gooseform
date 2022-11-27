@@ -3,7 +3,7 @@
 
  ![Homepage](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-form.png)
  
-Goose Form è un generatore dinamico di form realizzato in React. Mediante un oggetto JSON in ingresso opportunamente valorizzato, restituirà in uscita un form con tutti i campi richiesti, controlli di validazione e regole di visibilità. Oltre a questo, è possibile specificare anche la sorgente dati per generare form precompilati e l'endpoint di destinazione al quale inviare tutte le informazioni. Di seguito è presente la documentazione che illustra tutte le funzionalità del progetto. Sono in corso di sviluppo i due componenti aggiuntivi [Goose Form BE]() e [Goose Form Manager]() per agevolare e velocizzare la creazione dei form.  
+Goose Form è un generatore dinamico di form realizzato in React. Mediante un oggetto JSON in ingresso opportunamente valorizzato, restituirà in uscita un form con tutti i campi richiesti, controlli di validazione e regole di visibilità. Oltre a questo, è possibile specificare anche la sorgente dati per generare form precompilati e l'endpoint di destinazione al quale inviare tutte le informazioni. Di seguito è presente la documentazione che illustra tutte le funzionalità del progetto. Sono in corso di sviluppo i due componenti aggiuntivi [Goose Form BE](https://github.com/RiccardoRiggi/gooseform-be) e [Goose Form Manager](https://github.com/RiccardoRiggi/gooseform-manager) per agevolare e velocizzare la creazione dei form.  
 
 ---
 
