@@ -4,7 +4,7 @@ export const initialState = {
     formHide: {},
 }
 
-export const formHideReducer = (state = initialState, action) => {
+export const formHideReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'FETCH_FORM_HIDE':
             return {

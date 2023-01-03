@@ -1,7 +1,7 @@
 {
   "name": "gooseform",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -45,5 +45,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "![Homepage](https://raw.githubusercontent.com/RiccardoRiggi/gooseform/main/screenshots/goose-form.png)",
+  "main": "GooseForm.tsx",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RiccardoRiggi/gooseform.git"
+  },
+  "author": "Riccardo Riggi <work@riccardoriggi.it> (https://www.riccardoriggi.it/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RiccardoRiggi/gooseform/issues"
+  },
+  "homepage": ""
 }

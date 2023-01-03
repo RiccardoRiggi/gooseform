@@ -1,12 +1,12 @@
 import React from "react";
 
-export const initialState = {
+export const initialState: any = {
     testoSuccess: null,
     testoWarn: null,
     testoDanger: null
 }
 
-export const feedbackReducer = (state = initialState, action) => {
+export const feedbackReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'FETCH_TESTO_SUCCESS':
             return {

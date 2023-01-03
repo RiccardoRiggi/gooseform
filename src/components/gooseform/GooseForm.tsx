@@ -38,10 +38,10 @@ export default function GooseForm(input: GooseNestType) {
 
 
     const resetForm = () => {
-        dispatch(resetFormData());
-        dispatch(resetFormError());
-        dispatch(resetFormHide());
-        dispatch(resetFormDisabled());
+        dispatch(resetFormData(undefined));
+        dispatch(resetFormError(undefined));
+        dispatch(resetFormHide(undefined));
+        dispatch(resetFormDisabled(undefined));
     }
 
     const verificaStandardRequired = (controllo: GooseStandardControlType) => {

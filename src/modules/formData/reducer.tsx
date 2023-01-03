@@ -1,10 +1,10 @@
 import React from "react";
 
-export const initialState = {
+export const initialState: any = {
     formData: {},
 }
 
-export const formDataReducer = (state = initialState, action) => {
+export const formDataReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'FETCH_FORM_DATA':
             return {
