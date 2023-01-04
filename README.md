@@ -863,7 +863,7 @@ Il "SIMPLE_RENDER" ha un componente "B" che verrà nascosto o disabilitato se il
 | Identificativo | Descrizione |  
 | ----------- | ----------- | 
 | HIDE_B_IF_A_EQUAL_X | Nascondi "B" se "A" è uguale ad un determinato valore |
-| DISABLED_B_IF_A_EQUAL_X | Disabilita "B" se "A" è uguale ad un determinato valore |
+| DISABLE_B_IF_A_EQUAL_X | Disabilita "B" se "A" è uguale ad un determinato valore |
 | HIDE_B_IF_A_NOT_EQUAL_X | Nascondi "B" se "A" è diverso da un determinato valore |
 | DISABLE_B_IF_A_NOT_EQUAL_X | Disabilita "B" se "A" è diverso da un determinato valore |
 | HIDE_B_IF_A_MIN_X | Nascondi "B" se "A" è minore di un determinato valore |
@@ -891,13 +891,20 @@ Il "COMPLEX_RENDER" ha un componente "C" che verrà nascosto o disabilitato se i
 | Identificativo | Descrizione |  
 | ----------- | ----------- |
 | HIDE_C_IF_A_EQUAL_B | Nascondi "B" se "A" è uguale a "B" |
-| DISABLED_C_IF_A_EQUAL_B | Disabilita "B" se "A" è uguale a "B" |
+| DISABLE_C_IF_A_EQUAL_B | Disabilita "B" se "A" è uguale a "B" |
 | HIDE_C_IF_A__NOT_EQUAL_B | Nascondi "B" se "A" è diverso da "B" |
 | DISABLE_C_IF_A_NOT_EQUAL_B | Disabilita "B" se "A" è diverso da "B" |
 | HIDE_C_IF_A_MIN_B | Nascondi "B" se "A" è minore di "B" |
 | DISABLE_C_IF_A_MIN_B | Disabilita "B" se "A" è minore di "B" |
 | HIDE_C_IF_A_MAX_B | Nascondi "B" se "A" è maggiore di "B" |
 | DISABLE_C_IF_A_MAX_B | Disabilita "B" se "A" è maggiore di "B" |
+
+---
+
+## Changelog
+
+XX/01/2023
+- Corretta documentazione
 
 ---
 

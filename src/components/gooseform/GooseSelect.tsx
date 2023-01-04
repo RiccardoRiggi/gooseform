@@ -53,6 +53,7 @@ export default function GooseSelect(inp: any) {
 
     return (<>
         <select disabled={formDisabled[id]} className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onChange={aggiornaStato} value={formData[id] != undefined ? formData[id] : ""}>
+            <option value={""}>Scegli...</option>
             {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}

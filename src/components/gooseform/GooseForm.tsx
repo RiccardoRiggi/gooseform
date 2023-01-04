@@ -192,37 +192,124 @@ export default function GooseForm(input: GooseNestType) {
     }
 
     const verificaStandardMin = (controllo: GooseStandardControlType) => {
-        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(controllo.referenceValue)) {
-            if (formError[controllo.idComponentA] != undefined) {
-                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
-                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
-            } else {
-                formError[controllo.idComponentA] = controllo.errorMessage;
+
+        try {
+
+            if (!isNaN(formData[controllo.idComponentA])) {
+                throw new Error("Il valore è già un numero");
             }
-        } else {
-            if (formError[controllo.idComponentA] == controllo.errorMessage) {
-                formError[controllo.idComponentA] = undefined;
-            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
-                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+
+            let dataComponenteA = Date.parse(formData[controllo.idComponentA]);
+            console.info(dataComponenteA);
+
+            if (isNaN(dataComponenteA)) {
+                throw new Error("dataComponenteA non è una data valida");
+            }
+
+            let dataReferenceValue = Date.parse(controllo.referenceValue);
+            console.info(dataReferenceValue);
+
+            if (isNaN(dataReferenceValue)) {
+                throw new Error("dataReferenceValue non è una data valida");
+            }
+
+            if (dataComponenteA < dataReferenceValue) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
+            }
+
+
+        } catch (error: any) {
+            console.error(error);
+
+            if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(controllo.referenceValue)) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
             }
         }
+
+
     }
 
     const verificaStandardMax = (controllo: GooseStandardControlType) => {
-        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) > parseInt(controllo.referenceValue)) {
-            if (formError[controllo.idComponentA] != undefined) {
-                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
-                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
-            } else {
-                formError[controllo.idComponentA] = controllo.errorMessage;
+
+        try {
+
+            if (!isNaN(formData[controllo.idComponentA])) {
+                throw new Error("Il valore è già un numero");
             }
-        } else {
-            if (formError[controllo.idComponentA] == controllo.errorMessage) {
-                formError[controllo.idComponentA] = undefined;
-            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
-                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+
+            let dataComponenteA = Date.parse(formData[controllo.idComponentA]);
+            console.info(dataComponenteA);
+
+            if (isNaN(dataComponenteA)) {
+                throw new Error("dataComponenteA non è una data valida");
+            }
+
+            let dataReferenceValue = Date.parse(controllo.referenceValue);
+            console.info(dataReferenceValue);
+
+            if (isNaN(dataReferenceValue)) {
+                throw new Error("dataReferenceValue non è una data valida");
+            }
+
+            if (dataComponenteA > dataReferenceValue) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
+            }
+
+        } catch (error: any) {
+
+            console.error(error);
+
+            if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) > parseInt(controllo.referenceValue)) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
             }
         }
+
+
+
     }
 
 
@@ -285,37 +372,124 @@ export default function GooseForm(input: GooseNestType) {
     }
 
     const verificaComplexMin = (controllo: GooseComplexControlType) => {
-        if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(formData[controllo.idComponentB])) {
-            if (formError[controllo.idComponentA] != undefined) {
-                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
-                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
-            } else {
-                formError[controllo.idComponentA] = controllo.errorMessage;
+
+        try {
+
+            if (!isNaN(formData[controllo.idComponentA])) {
+                throw new Error("Il valore è già un numero");
             }
-        } else {
-            if (formError[controllo.idComponentA] == controllo.errorMessage) {
-                formError[controllo.idComponentA] = undefined;
-            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
-                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+
+            let dataComponenteA = Date.parse(formData[controllo.idComponentA]);
+            console.info(dataComponenteA);
+
+            if (isNaN(dataComponenteA)) {
+                throw new Error("dataComponenteA non è una data valida");
+            }
+
+            let dataComponenteB = Date.parse(formData[controllo.idComponentB]);
+            console.info(dataComponenteB);
+
+            if (isNaN(dataComponenteB)) {
+                throw new Error("dataComponenteB non è una data valida");
+            }
+
+            if (dataComponenteA < dataComponenteB) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
+            }
+
+        } catch (error: any) {
+            console.error(error);
+
+            if (formData[controllo.idComponentA] == undefined || parseInt(formData[controllo.idComponentA]) < parseInt(formData[controllo.idComponentB])) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
             }
         }
+
+
+
     }
 
     const verificaComplexMax = (controllo: GooseComplexControlType) => {
-        if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] > formData[controllo.idComponentB]) {
-            if (formError[controllo.idComponentA] != undefined) {
-                if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
-                    formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
-            } else {
-                formError[controllo.idComponentA] = controllo.errorMessage;
+
+
+        try {
+
+            if (!isNaN(formData[controllo.idComponentA])) {
+                throw new Error("Il valore è già un numero");
             }
-        } else {
-            if (formError[controllo.idComponentA] == controllo.errorMessage) {
-                formError[controllo.idComponentA] = undefined;
-            } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
-                formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+
+            let dataComponenteA = Date.parse(formData[controllo.idComponentA]);
+            console.info(dataComponenteA);
+
+            if (isNaN(dataComponenteA)) {
+                throw new Error("dataComponenteA non è una data valida");
+            }
+
+            let dataComponenteB = Date.parse(formData[controllo.idComponentB]);
+            console.info(dataComponenteB);
+
+            if (isNaN(dataComponenteB)) {
+                throw new Error("dataComponenteB non è una data valida");
+            }
+
+            if (dataComponenteA > dataComponenteB) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
+            }
+
+        } catch (error: any) {
+            console.error(error);
+
+            if (formData[controllo.idComponentA] == undefined || formData[controllo.idComponentA] > formData[controllo.idComponentB]) {
+                if (formError[controllo.idComponentA] != undefined) {
+                    if (!formError[controllo.idComponentA].includes(controllo.errorMessage))
+                        formError[controllo.idComponentA] = formError[controllo.idComponentA] + " | " + controllo.errorMessage;
+                } else {
+                    formError[controllo.idComponentA] = controllo.errorMessage;
+                }
+            } else {
+                if (formError[controllo.idComponentA] == controllo.errorMessage) {
+                    formError[controllo.idComponentA] = undefined;
+                } else if (formError[controllo.idComponentA] != undefined && formError[controllo.idComponentA].includes(controllo.errorMessage)) {
+                    formError[controllo.idComponentA] = formError[controllo.idComponentA].replace(controllo.errorMessage, "");
+                }
             }
         }
+
+
+
     }
 
     const gestisciControlloComplex = (controllo: GooseComplexControlType) => {
@@ -381,7 +555,7 @@ export default function GooseForm(input: GooseNestType) {
                     dispatch(fetchTestoSuccessAction(""));
                     dispatch(fetchTestoDangerAction("Errore durante l'invio del form"));
                 });
-            }else{
+            } else {
                 console.error("Errore di configurazione: non hai impostato l'endpoint di destinazione (destinationUrl)");
                 dispatch(fetchTestoDangerAction("Il destinationUrl non è presente all'interno della configurazione"));
             }
@@ -498,15 +672,17 @@ export default function GooseForm(input: GooseNestType) {
 
 
     const checkRenderConditional = () => {
-        form?.renders.map((render: GooseRenderType) => {
-            if ("SIMPLE_RENDER" == render.type) {
-                gestisciRenderSimple(render.detail as GooseSimpleRenderConditionalType)
-            } else if ("COMPLEX_RENDER" == render.type) {
-                gestisciRenderComplex(render.detail as GooseComplexRenderConditionalType)
-            }
-        })
-        dispatch(fetchFormHide(formHide));
-        dispatch(fetchFormDisabled(formDisabled));
+        if (Array.isArray(form?.renders)) {
+            form?.renders.map((render: GooseRenderType) => {
+                if ("SIMPLE_RENDER" == render.type) {
+                    gestisciRenderSimple(render.detail as GooseSimpleRenderConditionalType)
+                } else if ("COMPLEX_RENDER" == render.type) {
+                    gestisciRenderComplex(render.detail as GooseComplexRenderConditionalType)
+                }
+            })
+            dispatch(fetchFormHide(formHide));
+            dispatch(fetchFormDisabled(formDisabled));
+        }
     }
 
 
@@ -549,16 +725,16 @@ export default function GooseForm(input: GooseNestType) {
                 </div>
                 <div className="card-body">
                     <div className='row'>
-                        {form.components.map((componente: GooseComponentType) =>
+                        {Array.isArray(form.components) && form.components.map((componente: GooseComponentType) =>
                             <GooseComponent key={componente.id} input={componente} />
                         )}
                     </div>
                     <div className='row pt-3'>
                         <div className='col-6 text-right'>
-                            <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton.icon + " pr-2"}></i>{form.resetButton.title}</span>
+                            <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton != undefined ? form.resetButton.icon + " pr-2" : ""}></i>{form.resetButton != undefined ? form.resetButton.title : ""}</span>
                         </div>
                         <div className='col-6 text-left'>
-                            <span onClick={inviaForm} className='btn btn-primary'><i className={form.sendButton.icon + " pr-2"}></i>{form.sendButton.title}</span>
+                            <span onClick={inviaForm} className='btn btn-primary'><i className={form.sendButton != undefined ? form.sendButton.icon + " pr-2" : ""}></i>{form.sendButton != undefined ? form.sendButton.title : ""}</span>
                         </div>
                     </div>
 
