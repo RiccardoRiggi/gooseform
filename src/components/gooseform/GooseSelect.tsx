@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
+import { fetchFormList } from '../../modules/formList/actions';
 import { GooseKeyValue } from '../../type/GooseKeyValue';
 import { GooseSelectType } from '../../type/GooseSelectType';
 import GooseHttpRequestUtil from '../../util/GooseHttpRequestUtil';
@@ -11,6 +12,8 @@ export default function GooseSelect(inp: any) {
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
     let formDisabled = useSelector((state: any) => state.formDisabled);
+    let formList = useSelector((state: any) => state.formList);
+
 
     let dispatch = useDispatch();
 
@@ -19,7 +22,12 @@ export default function GooseSelect(inp: any) {
 
     const [eseguitaChiamata, setEseguitaChiamata] = React.useState(false);
 
-    const [listaValori, setListaValori] = React.useState<GooseKeyValue[]>(config.values);
+    if (formList[id] == undefined && config.dynamicValues == null) {
+        formList[id] = config.values;
+        dispatch(fetchFormList(formList));
+    }
+
+
 
     const aggiornaStato = (event: any) => {
         formData[id] = event.target.value;
@@ -34,7 +42,6 @@ export default function GooseSelect(inp: any) {
             let risposta = JSON.parse(response);
             console.log(risposta);
             let listaProvvisoria: Array<GooseKeyValue> = []
-            listaProvvisoria.push({ key: "", value: "Scegli..." });
             {
                 risposta.map((riga: any) => {
                     let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
@@ -45,7 +52,8 @@ export default function GooseSelect(inp: any) {
                 }
                 )
             }
-            setListaValori(listaProvvisoria);
+            formList[id]=listaProvvisoria;
+            dispatch(fetchFormList(formList));
         }).catch(e => {
             console.error(e);
         });
@@ -54,7 +62,7 @@ export default function GooseSelect(inp: any) {
     return (<>
         <select disabled={formDisabled[id]} className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onChange={aggiornaStato} value={formData[id] != undefined ? formData[id] : ""}>
             <option value={""}>Scegli...</option>
-            {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
+            {Array.isArray(formList[id]) && formList[id].map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}
         </select>

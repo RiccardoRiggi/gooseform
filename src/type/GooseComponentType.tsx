@@ -16,5 +16,8 @@ export type GooseComponentType = {
     tooltip: GooseTooltipType
     popup: GoosePopupType
     requiredMark: boolean
-
+    paddingTop: string
+    paddingBottom: string
+    paddingLeft: string
+    paddingRight: string
 }

@@ -1,3 +1,4 @@
+import { getEventListeners } from 'events';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
@@ -35,6 +36,9 @@ export default function GooseForm(input: GooseNestType) {
     const [resettato, setResettato] = React.useState(false);
 
     const [eseguitaChiamataRecuperoDati, setEseguitaChiamataRecuperoDati] = React.useState(false);
+
+    const [aggiuntiEventi, setAggiuntiEventi] = React.useState(false);
+
 
 
     const resetForm = () => {
@@ -507,9 +511,20 @@ export default function GooseForm(input: GooseNestType) {
     const isControlliPassati = () => {
         form?.controls.map((controllo: GooseControlType) => {
             if ("STANDARD" == controllo.type) {
-                gestisciControlloStandard(controllo.detail as GooseStandardControlType)
+                let controlloTmp: GooseStandardControlType = controllo.detail as GooseStandardControlType;
+                if(formDisabled[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined){
+                    console.warn("Il controllo STANDARD "+controlloTmp.type+" per il componente "+controlloTmp.idComponentA+" viene saltato perché il componente è disabilitato/nascosto");
+                }else{
+                    gestisciControlloStandard(controlloTmp)
+                }
             } else if ("COMPLEX" == controllo.type) {
-                gestisciControlloComplex(controllo.detail as GooseComplexControlType)
+                let controlloTmp: GooseComplexControlType = controllo.detail as GooseComplexControlType;
+                if(formDisabled[controlloTmp.idComponentA] != undefined || formDisabled[controlloTmp.idComponentB] != undefined || formHide[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined ){
+                    console.warn("Il controllo COMPLEX "+controlloTmp.type+" per i componenti "+controlloTmp.idComponentA+" e "+controlloTmp.idComponentB+" viene saltato perché il componente è disabilitato/nascosto");
+                }else{
+                    gestisciControlloComplex(controlloTmp)
+                }
+
             }
         })
 
@@ -711,9 +726,23 @@ export default function GooseForm(input: GooseNestType) {
     }, [formData]);
 
 
+    /*
+        PER RESETTARE IL FORM: 
+        document.getElementById('resetFormButton').click();
 
+        PER LANCIARE I CONTROLLI:
+        document.getElementById('eseguiControlliButton').click();
+
+        PER INVIARE IL FORM:
+        document.getElementById('inviaFormButton').click();
+
+    */
 
     return (<>
+        <button className='d-none' id='resetFormButton' onClick={resetForm} ></button>
+        <button className='d-none' id='eseguiControlliButton' onClick={isControlliPassati} ></button>
+        <button className='d-none' id='inviaFormButton' onClick={inviaForm} ></button>
+
         {form != undefined &&
             <form autoComplete={form.autocomplete ? "on" : "off"}><div id={form.formId != undefined ? form.formId : ""} className="card shadow mb-4">
                 <div
@@ -731,10 +760,10 @@ export default function GooseForm(input: GooseNestType) {
                     </div>
                     <div className='row pt-3'>
                         <div className='col-6 text-right'>
-                            <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton != undefined ? form.resetButton.icon + " pr-2" : ""}></i>{form.resetButton != undefined ? form.resetButton.title : ""}</span>
+                            {form.resetButton != undefined && <span onClick={resetForm} className='btn btn-outline-primary'><i className={form.resetButton != undefined ? form.resetButton.icon + " pr-2" : ""}></i>{form.resetButton != undefined ? form.resetButton.title : ""}</span>}
                         </div>
                         <div className='col-6 text-left'>
-                            <span onClick={inviaForm} className='btn btn-primary'><i className={form.sendButton != undefined ? form.sendButton.icon + " pr-2" : ""}></i>{form.sendButton != undefined ? form.sendButton.title : ""}</span>
+                            {form.sendButton != undefined && <span onClick={inviaForm} className='btn btn-primary'><i className={form.sendButton != undefined ? form.sendButton.icon + " pr-2" : ""}></i>{form.sendButton != undefined ? form.sendButton.title : ""}</span>}
                         </div>
                     </div>
 

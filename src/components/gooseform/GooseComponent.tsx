@@ -32,6 +32,8 @@ export default function GooseComponent(inp: any) {
 
     let input: GooseComponentType = inp.input;
 
+    console.warn(input);
+
     const generaComponente = () => {
 
         if ("GOOSE_TEXT_AREA" == input.type) {
@@ -79,8 +81,30 @@ export default function GooseComponent(inp: any) {
         return formHide[input.id] ? "d-none" : "";
     }
 
+    const gestisciPadding = () => {
+        let stringaFinale = "";
+
+        if(input.paddingBottom!=null){
+            stringaFinale+=" pb-"+input.paddingBottom+" ";
+        }
+
+        if(input.paddingLeft!=null){
+            stringaFinale+=" pl-"+input.paddingLeft+" ";
+        }
+
+        if(input.paddingRight!=null){
+            stringaFinale+=" pr-"+input.paddingRight+" ";
+        }
+
+        if(input.paddingTop!=null){
+            stringaFinale+=" pt-"+input.paddingTop+" ";
+        }
+
+        return stringaFinale;
+    }
+
     return (
-        <div id={input.id != undefined ? input.id + "-container" : ""} className={"pt-3 col-" + input.width + " " + "col-xl-" + input.widthXl + " " + "col-lg-" + input.widthLg + " " + "col-md-" + input.widthMd + " " + "col-sm-" + input.widthSm + " " + gestisciVisibilita()}>
+        <div id={input.id != undefined ? input.id + "-container" : ""} className={"pt-3 col-" + input.width + " " + "col-xl-" + input.widthXl + " " + "col-lg-" + input.widthLg + " " + "col-md-" + input.widthMd + " " + "col-sm-" + input.widthSm + " " + gestisciVisibilita()+ " "+gestisciPadding()}>
             <div className='d-flex flex-row align-items-center justify-content-between'>
                 {"GOOSE_CHECKBOX" != input.type && <><label>{input.label}{input.requiredMark && <strong className='text-danger'>*</strong>}</label>
                     <span>

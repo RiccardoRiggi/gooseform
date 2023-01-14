@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
+import { fetchFormList } from '../../modules/formList/actions';
 import { GooseHttpRequest } from '../../type/GooseHttpRequest';
 import { GooseKeyValue } from '../../type/GooseKeyValue';
 import { GooseLinkedSelectType } from '../../type/GooseLinkedSelectType';
@@ -14,20 +15,25 @@ export default function GooseLinkedSelect(inp: any) {
 
     const [eseguitaChiamata, setEseguitaChiamata] = React.useState(false);
 
-    const [listaValori, setListaValori] = React.useState<GooseKeyValue[]>(config.values);
+    let dispatch = useDispatch();
+
 
     let formData = useSelector((state: any) => state.formData);
     let formError = useSelector((state: any) => state.formError);
     let formDisabled = useSelector((state: any) => state.formDisabled);
+    let formList = useSelector((state: any) => state.formList);
+
+    if (formList[id] == undefined && config.dynamicValues == null) {
+        formList[id] = config.values;
+        dispatch(fetchFormList(formList));
+    }
 
 
-
-    let dispatch = useDispatch();
 
     const aggiornaStato = (event: any) => {
         formData[id] = event.target.value;
         dispatch(fetchFormData(formData));
-        formError[id]=undefined;
+        formError[id] = undefined;
         dispatch(fetchFormError(formError));
     };
 
@@ -51,7 +57,8 @@ export default function GooseLinkedSelect(inp: any) {
                 }
                 )
             }
-            setListaValori(listaProvvisoria);
+            formList[id]=listaProvvisoria;
+            dispatch(fetchFormList(formList));
             formData[id] = "";
             dispatch(fetchFormData(formData));
         }).catch(e => {
@@ -66,7 +73,6 @@ export default function GooseLinkedSelect(inp: any) {
             let risposta = JSON.parse(response);
             console.log(risposta);
             let listaProvvisoria: Array<GooseKeyValue> = []
-            listaProvvisoria.push({ key: "", value: "Scegli..." });
             {
                 risposta.map((riga: any) => {
                     let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
@@ -77,7 +83,8 @@ export default function GooseLinkedSelect(inp: any) {
                 }
                 )
             }
-            setListaValori(listaProvvisoria);
+            formList[id]=listaProvvisoria;
+            dispatch(fetchFormList(formList));
         }).catch(e => {
             console.error(e);
         });
@@ -106,8 +113,9 @@ export default function GooseLinkedSelect(inp: any) {
     }
 
     return (<>
-        <select disabled={formDisabled[id]} className={formError[id]!=undefined?"form-control is-invalid":"form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id]!=undefined?formData[id]:""}>
-            {Array.isArray(listaValori) && listaValori.map((val: GooseKeyValue) =>
+        <select disabled={formDisabled[id]} className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id] != undefined ? formData[id] : ""}>
+            <option value={""}>Scegli...</option>
+            {Array.isArray(formList[id]) && formList[id].map((val: GooseKeyValue) =>
                 <option value={val.key} >{val.value}</option>
             )}
         </select>
