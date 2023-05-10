@@ -1,16 +1,18 @@
 import { getEventListeners } from 'events';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
+import { fetchIsLoadingAction, fetchTestoDangerAction, fetchTestoSuccessAction } from '../../modules/feedback/actions';
 import { fetchFormData, resetFormData } from '../../modules/formData/actions';
 import { fetchFormDisabled, resetFormDisabled } from '../../modules/formDisabled/actions';
 import { fetchFormError, resetFormError } from '../../modules/formError/actions';
 import { fetchFormHide, resetFormHide } from '../../modules/formHide/actions';
+import gooseFormService from '../../services/GooseFormService';
 import { GooseComplexControlType } from '../../type/GooseComplexControlType';
 import { GooseComplexRenderConditionalType } from '../../type/GooseComplexRenderConditionalType';
 import { GooseComponentType } from '../../type/GooseComponentType';
 import { GooseControlType } from '../../type/GooseControlType';
 import { GooseFormType } from '../../type/GooseFormType';
+import { GooseHttpRequest } from '../../type/GooseHttpRequest';
 import { GooseNestType } from '../../type/GooseNestType';
 import { GooseRenderType } from '../../type/GooseRenderType';
 import { GooseSimpleRenderConditionalType } from '../../type/GooseSimpleRenderConditionalType';
@@ -27,7 +29,7 @@ export default function GooseForm(input: GooseNestType) {
     let formDisabled = useSelector((state: any) => state.formDisabled);
 
 
-    let form: GooseFormType = input.form;
+    let formTmp: GooseFormType = input.form;
 
 
     let dispatch = useDispatch();
@@ -36,6 +38,10 @@ export default function GooseForm(input: GooseNestType) {
     const [resettato, setResettato] = React.useState(false);
 
     const [eseguitaChiamataRecuperoDati, setEseguitaChiamataRecuperoDati] = React.useState(false);
+    const [isPrimoCaricamento, setPrimoCaricamento] = React.useState(true);
+
+    const [form, setForm] = React.useState<any>();
+
 
     const [aggiuntiEventi, setAggiuntiEventi] = React.useState(false);
 
@@ -512,16 +518,16 @@ export default function GooseForm(input: GooseNestType) {
         form?.controls.map((controllo: GooseControlType) => {
             if ("STANDARD" == controllo.type) {
                 let controlloTmp: GooseStandardControlType = controllo.detail as GooseStandardControlType;
-                if(formDisabled[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined){
-                    console.warn("Il controllo STANDARD "+controlloTmp.type+" per il componente "+controlloTmp.idComponentA+" viene saltato perché il componente è disabilitato/nascosto");
-                }else{
+                if (formDisabled[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined) {
+                    console.warn("Il controllo STANDARD " + controlloTmp.type + " per il componente " + controlloTmp.idComponentA + " viene saltato perché il componente è disabilitato/nascosto");
+                } else {
                     gestisciControlloStandard(controlloTmp)
                 }
             } else if ("COMPLEX" == controllo.type) {
                 let controlloTmp: GooseComplexControlType = controllo.detail as GooseComplexControlType;
-                if(formDisabled[controlloTmp.idComponentA] != undefined || formDisabled[controlloTmp.idComponentB] != undefined || formHide[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined ){
-                    console.warn("Il controllo COMPLEX "+controlloTmp.type+" per i componenti "+controlloTmp.idComponentA+" e "+controlloTmp.idComponentB+" viene saltato perché il componente è disabilitato/nascosto");
-                }else{
+                if (formDisabled[controlloTmp.idComponentA] != undefined || formDisabled[controlloTmp.idComponentB] != undefined || formHide[controlloTmp.idComponentA] != undefined || formHide[controlloTmp.idComponentA] != undefined) {
+                    console.warn("Il controllo COMPLEX " + controlloTmp.type + " per i componenti " + controlloTmp.idComponentA + " e " + controlloTmp.idComponentB + " viene saltato perché il componente è disabilitato/nascosto");
+                } else {
                     gestisciControlloComplex(controlloTmp)
                 }
 
@@ -556,20 +562,28 @@ export default function GooseForm(input: GooseNestType) {
         return oggetto;
     }
 
-    const inviaForm = () => {
+    const inviaForm = async () => {
 
         if (isControlliPassati()) {
             let oggettoDaInviare = JSON.stringify(estraiDatiDaForm());
             if (form.destinationUrl != undefined) {
                 form.destinationUrl.body = oggettoDaInviare;
-                GooseHttpRequestUtil(form.destinationUrl)?.then(response => {
-                    dispatch(fetchTestoSuccessAction("Form inviato con successo"));
-                    dispatch(fetchTestoDangerAction(""));
-                }).catch(e => {
-                    console.error(e);
-                    dispatch(fetchTestoSuccessAction(""));
-                    dispatch(fetchTestoDangerAction("Errore durante l'invio del form"));
-                });
+                if (form.destinationUrl.method === "POST") {
+                    await gooseFormService.eseguiChiamataPost(form.destinationUrl, oggettoDaInviare)
+                        .then((response) => {
+                            console.info("Form inviato con successo!");
+                            console.info(response.data);
+                            dispatch(fetchTestoSuccessAction("Form inviato con successo!"));
+                            dispatch(fetchTestoDangerAction(""));
+                        })
+                        .catch((e: any) => {
+                            console.error(e.response);
+                            console.error("Errore durante l'invio del form");
+                            dispatch(fetchTestoSuccessAction(""));
+                            dispatch(fetchTestoDangerAction("Errore durante l'invio del form"));
+
+                        });
+                }
             } else {
                 console.error("Errore di configurazione: non hai impostato l'endpoint di destinazione (destinationUrl)");
                 dispatch(fetchTestoDangerAction("Il destinationUrl non è presente all'interno della configurazione"));
@@ -701,7 +715,74 @@ export default function GooseForm(input: GooseNestType) {
     }
 
 
+    function demo() {
+        console.log("Avvio della baracca in corso...")
+        return Promise.resolve("Success");
+
+    }
+
+    const componentiConDatiDinamici = [
+        "GOOSE_SELECT", "GOOSE_LINKED_SELECT", "GOOSE_DATA_LIST", "GOOSE_RADIO"
+    ]
+
     useEffect(() => {
+
+        if (isPrimoCaricamento && formTmp != undefined) {
+            setPrimoCaricamento(false);
+
+            demo().then(
+                (onResolved) => {
+                    console.info("INIZIO CHIAMATE DINAMICHE");
+
+                },
+                (onRejected) => {
+                    console.info("ERRORE STRAZIANTE");
+                }
+            ).then(
+                async () => {
+
+                    for (let c = 0; c < formTmp.components.length; c++) {
+                        let componenteTmp = formTmp.components[c];
+
+                        if (componentiConDatiDinamici.includes(componenteTmp.type)) {
+                            let settingsTmp: any = componenteTmp.setting;
+                            if (settingsTmp.dynamicValues != undefined) {
+
+
+                                let chiamataHttpTmp: GooseHttpRequest = settingsTmp.dynamicValues;
+
+                                if (chiamataHttpTmp.method === "GET") {
+                                    await gooseFormService.eseguiChiamataGet(chiamataHttpTmp)
+                                        .then((response) => {
+                                            formTmp.components[c].setting.values = response.data;
+                                        })
+                                        .catch((e: any) => {
+                                            console.error(e.response);
+                                            console.error("Errore recupero dati dinamici per il componente " + componenteTmp.id)
+                                        });
+                                }
+
+                            }
+                        }
+                    }
+
+
+                }
+            ).then(
+                () => {
+                    setForm(formTmp);
+                    console.info(formTmp);
+                    console.info("FINE CHIAMATE DINAMICHE")
+                }
+            )
+
+
+
+
+
+
+
+        }
 
         checkRenderConditional();
 

@@ -12,7 +12,7 @@ export type GooseComponentType = {
     widthMd: string
     widthSm: string
     width: string
-    setting: Object//DIPENDE DAL type
+    setting: any//DIPENDE DAL type
     tooltip: GooseTooltipType
     popup: GoosePopupType
     requiredMark: boolean

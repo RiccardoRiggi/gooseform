@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchFormData } from '../../modules/formData/actions';
 import { fetchFormError } from '../../modules/formError/actions';
 import { fetchFormList } from '../../modules/formList/actions';
+import gooseFormService from '../../services/GooseFormService';
 import { GooseHttpRequest } from '../../type/GooseHttpRequest';
 import { GooseKeyValue } from '../../type/GooseKeyValue';
 import { GooseLinkedSelectType } from '../../type/GooseLinkedSelectType';
@@ -13,7 +14,6 @@ export default function GooseLinkedSelect(inp: any) {
     let config: GooseLinkedSelectType = inp.input;
     let id: string = inp.id;
 
-    const [eseguitaChiamata, setEseguitaChiamata] = React.useState(false);
 
     let dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ export default function GooseLinkedSelect(inp: any) {
     let formDisabled = useSelector((state: any) => state.formDisabled);
     let formList = useSelector((state: any) => state.formList);
 
-    if (formList[id] == undefined && config.dynamicValues == null) {
+    if (formList[id] == undefined) {
         formList[id] = config.values;
         dispatch(fetchFormList(formList));
     }
@@ -37,58 +37,51 @@ export default function GooseLinkedSelect(inp: any) {
         dispatch(fetchFormError(formError));
     };
 
-    const aggiornaValoriDopoInputPadre = () => {
-        setEseguitaChiamata(true);
+    const aggiornaValoriDopoInputPadre = async () => {
+
+        let listaProvvisoria: Array<GooseKeyValue> = []
+
+
         let newDynamicValues: GooseHttpRequest = Object.assign({}, config.dynamicValues);
 
         newDynamicValues.url = newDynamicValues.url + "/" + formData[config.idLinkedSelectPadre];
-        GooseHttpRequestUtil(newDynamicValues)?.then(response => {
-            let risposta = JSON.parse(response);
-            console.log(risposta);
-            let listaProvvisoria: Array<GooseKeyValue> = []
-            listaProvvisoria.push({ key: "", value: "Scegli..." });
-            {
-                risposta.map((riga: any) => {
-                    let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
-                    oggettoRispostaTpm.key = riga[config.keyName];
-                    oggettoRispostaTpm.value = riga[config.valueName];
-                    if (oggettoRispostaTpm.key != undefined && oggettoRispostaTpm.key != "")
-                        listaProvvisoria.push(oggettoRispostaTpm);
-                }
-                )
-            }
-            formList[id]=listaProvvisoria;
-            dispatch(fetchFormList(formList));
-            formData[id] = "";
-            dispatch(fetchFormData(formData));
-        }).catch(e => {
-            console.error(e);
-        });
+
+        if (newDynamicValues.method === "GET") {
+            await gooseFormService.eseguiChiamataGet(newDynamicValues)
+                .then((response) => {
+
+                    response.data.map((riga: any) => {
+
+
+
+                        let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
+                        oggettoRispostaTpm.key = riga[config.keyName];
+                        oggettoRispostaTpm.value = riga[config.valueName];
+
+                        console.info(config.keyName, config.valueName)
+
+                        if (oggettoRispostaTpm.key != undefined && oggettoRispostaTpm.key != "") {
+
+                            listaProvvisoria.push(oggettoRispostaTpm);
+                        }
+
+                    })
+
+                    formList[id] = listaProvvisoria;
+                    dispatch(fetchFormList(formList));
+                    formData[id] = "";
+                    dispatch(fetchFormData(formData));
+                })
+                .catch((e: any) => {
+                    console.error(e.response);
+                    console.error("Errore recupero dati dinamici per il componente " + id)
+                });
+        }
+
     }
 
 
-    const aggiornaValori = () => {
-        setEseguitaChiamata(true);
-        GooseHttpRequestUtil(config.dynamicValues)?.then(response => {
-            let risposta = JSON.parse(response);
-            console.log(risposta);
-            let listaProvvisoria: Array<GooseKeyValue> = []
-            {
-                risposta.map((riga: any) => {
-                    let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
-                    oggettoRispostaTpm.key = riga[config.keyName];
-                    oggettoRispostaTpm.value = riga[config.valueName];
-                    if (oggettoRispostaTpm.key != undefined)
-                        listaProvvisoria.push(oggettoRispostaTpm);
-                }
-                )
-            }
-            formList[id]=listaProvvisoria;
-            dispatch(fetchFormList(formList));
-        }).catch(e => {
-            console.error(e);
-        });
-    }
+
 
     const handleOnChange = (event: any) => {
         aggiornaStato(event);
@@ -108,9 +101,7 @@ export default function GooseLinkedSelect(inp: any) {
 
     }
 
-    if (config.dynamicValues != null && !eseguitaChiamata) {
-        aggiornaValori();
-    }
+
 
     return (<>
         <select disabled={formDisabled[id]} className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onDoubleClick={() => aggiornaValoriDopoInputPadre()} onChange={handleOnChange} value={formData[id] != undefined ? formData[id] : ""}>

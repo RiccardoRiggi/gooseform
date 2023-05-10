@@ -20,9 +20,8 @@ export default function GooseSelect(inp: any) {
     let config: GooseSelectType = inp.input;
     let id: string = inp.id;
 
-    const [eseguitaChiamata, setEseguitaChiamata] = React.useState(false);
 
-    if (formList[id] == undefined && config.dynamicValues == null) {
+    if (formList[id] == undefined) {
         formList[id] = config.values;
         dispatch(fetchFormList(formList));
     }
@@ -36,28 +35,6 @@ export default function GooseSelect(inp: any) {
         dispatch(fetchFormError(formError));
     };
 
-    if (config.dynamicValues != null && !eseguitaChiamata) {
-        setEseguitaChiamata(true);
-        GooseHttpRequestUtil(config.dynamicValues)?.then(response => {
-            let risposta = JSON.parse(response);
-            console.log(risposta);
-            let listaProvvisoria: Array<GooseKeyValue> = []
-            {
-                risposta.map((riga: any) => {
-                    let oggettoRispostaTpm: GooseKeyValue = { key: "", value: "" };
-                    oggettoRispostaTpm.key = riga[config.keyName];
-                    oggettoRispostaTpm.value = riga[config.valueName];
-                    if (oggettoRispostaTpm.key != undefined)
-                        listaProvvisoria.push(oggettoRispostaTpm);
-                }
-                )
-            }
-            formList[id]=listaProvvisoria;
-            dispatch(fetchFormList(formList));
-        }).catch(e => {
-            console.error(e);
-        });
-    }
 
     return (<>
         <select disabled={formDisabled[id]} className={formError[id] != undefined ? "form-control is-invalid" : "form-control"} id={id} size={config.size} onChange={aggiornaStato} value={formData[id] != undefined ? formData[id] : ""}>
